@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-	belong_to :user
+	belongs_to :user
 	has_many :recipes
 	
 	validates :name, presence: true
