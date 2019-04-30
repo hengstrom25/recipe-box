@@ -4,6 +4,7 @@ class CreateRecipes < ActiveRecord::Migration[4.2]
 			t.string :name
 			t.string :recipe_field
 			t.string :notes
+			t.integer :category_id
 		end
 	end
 end

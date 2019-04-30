@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.string "name"
     t.string "recipe_field"
     t.string "notes"
+    t.integer "category_id"
   end
 
   create_table "users", force: :cascade do |t|
