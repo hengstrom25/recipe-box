@@ -25,9 +25,19 @@ const data = {categories: [
 };
 
 class RecipeBox extends Component {
-	render () {
+	constructor(props) {
+	super(props)
+	
+	this.state = {
+	
+	};
+	
+	render() {
+	
+		const { data } = this.props;
+		
 		return (
-			data
+			{ data }
 		)
 	}
 

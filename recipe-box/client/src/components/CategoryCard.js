@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 class CategoryCard extends Component {
+	constructor(props) {
+		super(props)
 	const categories = props.categories
 	const listItems = categories.map((category) => 
 		<li>{category}</li>
