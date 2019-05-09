@@ -2,8 +2,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-//import CategoryCard from './components/CategoryCard';
+import CategoryCard from './components/CategoryCard';
 import RecipeBox from './components/RecipeBox';
+import RecipeCard from './components/RecipeCard';
 
 const data = {categories: [
   {name: "Salads",
@@ -34,6 +35,8 @@ class App extends Component {
 		return (
 			<div>
 				<RecipeBox categories={data.categories}/>
+				<CategoryCard recipes={data.categories[0].recipes}/>
+				<RecipeCard recipe={data.categories[0].recipes[0]}/>
 			</div>
 		)
 	}
