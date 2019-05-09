@@ -5,11 +5,35 @@ import './App.css';
 //import CategoryCard from './components/CategoryCard';
 import RecipeBox from './components/RecipeBox';
 
+const data = {categories: [
+  {name: "Salads",
+   recipes: [
+      {name: "Mom's Tossed Salad",
+       url: "http://greatcooks.com/blah/123",
+       comments: "This is a good salad"
+      },
+     {name: "Dad's Potato Salad",
+      url: "http://goodstuff.com/abc/456",
+      comments: "Many calories"
+     }
+   ]
+  },
+  {name: "Desserts",
+    recipes: [
+      {name: "Chocolate Cake",
+       url: "http://easybake.com/xyz/999",
+       comments: "Love it"
+      }
+   ]
+}
+]
+};
+
 class App extends Component {
 	render() {
 		return (
 			<div>
-				<RecipeBox />
+				<RecipeBox categories={data.categories}/>
 			</div>
 		)
 	}
