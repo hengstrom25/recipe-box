@@ -5,7 +5,7 @@ class RecipeBox extends Component {
 	super(props)
 	
 		this.state = {
-	
+			categories: []
 		};
 	}
 	render() {

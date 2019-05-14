@@ -36,10 +36,9 @@ class App extends Component {
 		return (
 		<Router>
 			<div>
-				<Route exact path='/recipebox' component={RecipeBox}/>
-				<RecipeBox categories={data.categories}/>
+				<Route path='/recipebox' component={RecipeBox}/>
 				<CategoryCard recipes={data.categories[0].recipes}/>
-				<RecipeCard recipe={data.categories[0].recipes[0]}/>
+				<Route path='/recipes' component={RecipeCard}/>
 			</div>
 		</Router>
 		)
@@ -53,6 +52,8 @@ class App extends Component {
     //		<Route exact path="/category" component={Category} />
     //	</Switch>
     //</Router>	
+    
+    //<Route path='/recipebox' component={RecipeBox} categories={data.categories[id]}/>
 
 
 export default App;
