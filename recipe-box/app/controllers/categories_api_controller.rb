@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-skip_before_action :verify_authenticity_token
+#skip_before_action :verify_authenticity_token
 
 	def index
 		categories = Category.where(user_id: current_user.id)

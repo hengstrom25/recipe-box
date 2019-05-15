@@ -1,4 +1,4 @@
-class RecipesApiController < ApplicationController
+class RecipesController < ApplicationController
 
 	def index
 		recipes = Recipe.where(category_id: params[:category_id])
