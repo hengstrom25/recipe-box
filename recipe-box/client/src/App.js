@@ -40,28 +40,21 @@ class App extends Component {
 					<h1 className='App-title'>Recipe Box</h1>
 				</header>
 			</div>
-		<Router>
-			<div>
-				<Switch>
-					<Route path='/recipebox' component={RecipeBox}/>
-					<Route path ='/categories' component={CategoryCard}/>
-					<Route path='/recipes' component={RecipeCard}/>
-				</Switch>
-			</div>
-		</Router>
+			<Router>
+				<div>
+					<Switch>
+						<Route path='/recipebox' component={RecipeBox}/>
+						<Route path ='/categories' component={CategoryCard}/>
+						<Route path='/recipes' component={RecipeCard}/>
+					</Switch>
+				</div>
+			</Router>
+		</div>
 		)
 	}
 };
 		
-  
-    //<Router>
-    //	<Switch>
-    //		<Route exact path="/" component={RecipeBox} />
-    //		<Route exact path="/category" component={Category} />
-    //	</Switch>
-    //</Router>	
-    
-    //<Route path='/recipebox' component={RecipeBox} categories={data.categories[id]}/>
+
 
 
 export default App;

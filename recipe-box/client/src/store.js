@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import recipes from './reducers/recipesReducer';
 
-const reducers = combineReducers({ recipes ]);
+const reducers = combineReducers({ recipes });
 
 export default createStore(
 	reducers, 
