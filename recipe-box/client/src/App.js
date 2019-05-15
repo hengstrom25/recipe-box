@@ -36,8 +36,8 @@ class App extends Component {
 		return (
 		<div>
 			<div className ='App'>
-				<header className='App-header'
-					<h1 className='App-title'>Recipe Box<h1>
+				<header className='App-header'>
+					<h1 className='App-title'>Recipe Box</h1>
 				</header>
 			</div>
 		<Router>
