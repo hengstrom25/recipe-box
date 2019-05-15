@@ -34,11 +34,19 @@ const data = {categories: [
 class App extends Component {
 	render() {
 		return (
+		<div>
+			<div className ='App'>
+				<header className='App-header'
+					<h1 className='App-title'>Recipe Box<h1>
+				</header>
+			</div>
 		<Router>
 			<div>
-				<Route path='/recipebox' component={RecipeBox}/>
-				<CategoryCard recipes={data.categories[0].recipes}/>
-				<Route path='/recipes' component={RecipeCard}/>
+				<Switch>
+					<Route path='/recipebox' component={RecipeBox}/>
+					<Route path ='/categories' component={CategoryCard}/>
+					<Route path='/recipes' component={RecipeCard}/>
+				</Switch>
 			</div>
 		</Router>
 		)
