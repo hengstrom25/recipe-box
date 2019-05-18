@@ -60,14 +60,11 @@ class App extends Component {
 				<div>
 					<Switch>
 						<Route exact path='/' component={Home}/>
-						<Route path='/recipebox' render={props => (
-							<RecipeBox categories={data.categories}/>
-						)}/>
+						<Route path='/recipebox' component={RecipeBox}/>
 						<Route path='/category/:catid' render={props => {
           					const {catid} = props.match.params;
           						return (
-            						<CategoryCard recipes={data.categories[catid].recipes.map(rid => 
-            							data.recipes[rid])}/>
+            						<CategoryCard id={catid}/>
           						)
         					}}/>
 						<Route path='/recipe/:rid' render={props => {

@@ -7,13 +7,13 @@ class CategoryCard extends Component {
 		super(props)
 		
 			this.state = {
-			
+				recipes: []
 			};
 		}
 		
 	render() {
 		
-			const { recipes } = this.props;
+			const { recipes } = this.state;
 			
 			return (
 				<ul>
@@ -26,6 +26,18 @@ class CategoryCard extends Component {
 			)
 		
 		}
+		
+			
+	componentDidMount() {
+		fetch('http://localhost:3001/categories/' +this.props.id +'/recipes')
+			.then(response => response.json())
+			.then(data => {
+				this.setState({
+					recipes: data
+				})
+			})
+	}
+
 
 };
 
