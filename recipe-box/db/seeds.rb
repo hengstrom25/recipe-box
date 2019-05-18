@@ -63,6 +63,7 @@ category = Category.create([{
 recipe = Recipe.create([{
 	name: 'Scrambled Eggs',
 	recipe_field: 'https://www.foodnetwork.com/recipes/ina-garten/slow-cooked-scrambled-eggs-with-caviar-recipe-1941943',
-	notes: 'Must try next time there is caviar in the house'
+	notes: 'Must try next time there is caviar in the house',
+	category_id: 1
 	}
 	])
