@@ -7,7 +7,7 @@ const mapStateToProps = state =>
 		categories: state.categories.allIds.map(id => state.categories.byId[id])
 	})
 
-class RecipeBox extends Component {
+class RecipeBoxPresentation extends Component {
 	constructor(props) {
 	super(props)
 	
@@ -42,5 +42,6 @@ class RecipeBox extends Component {
 
 };
 
-export default connect(mapStateToProps)(RecipeBox);
+const RecipeBox = connect(mapStateToProps)(RecipeBoxPresentation);
 
+export default RecipeBox
