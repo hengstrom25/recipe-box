@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => 
+	({
+		categories: state.categories.allIds.map(id => state.categories.byId[id])
+	})
 
 class RecipeBox extends Component {
 	constructor(props) {
 	super(props)
 	
-		this.state = {
+		/*this.state = {
 			categories: []
-		};
+		};*/
 	}
 	render() {
 	
-		const { categories } = this.state;
+		const { categories } = this.props;
 		
 		return (
 			<ul>
@@ -24,7 +30,7 @@ class RecipeBox extends Component {
 		)
 	}
 	
-	componentDidMount() {
+	/*componentDidMount() {
 		fetch('http://localhost:3001/categories')
 			.then(response => response.json())
 			.then(data => {
@@ -32,9 +38,9 @@ class RecipeBox extends Component {
 					categories: data
 				})
 			})
-	}
+	}*/
 
 };
 
-export default RecipeBox;
+export default connect(mapStateToProps)(RecipeBox);
 
