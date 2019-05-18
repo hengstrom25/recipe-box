@@ -42,6 +42,7 @@ class RecipeBoxPresentation extends Component {
 
 };
 
-const RecipeBox = connect(mapStateToProps)(RecipeBoxPresentation);
+const RecipeBox = connect(mapStateToProps, null)(RecipeBoxPresentation);
+	/*null to later be replaced by mapDispatchToProps*/
 
 export default RecipeBox
