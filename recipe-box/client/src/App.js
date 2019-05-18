@@ -6,6 +6,7 @@ import './App.css';
 import CategoryCard from './components/CategoryCard';
 import RecipeBox from './components/RecipeBox';
 import RecipeCard from './components/RecipeCard';
+import Home from './components/Home';
 
 const data = {categories: [
   {name: "Salads", id: 0,
@@ -38,6 +39,7 @@ class App extends Component {
 			<Router>
 				<div>
 					<Switch>
+						<Route exact path='/' component={Home}/>
 						<Route path='/recipebox' render={props => (
 							<RecipeBox categories={data.categories}/>
 						)}/>
@@ -66,8 +68,4 @@ class App extends Component {
 
 export default App;
 
-{/*<div className ='App'>
-	<header className='App-header'>
-	<h1 className='App-title'>Recipe Box</h1>
-	</header>
-</div>*/}
+
