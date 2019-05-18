@@ -35,17 +35,24 @@ class App extends Component {
 	render() {
 		return (
 		<div>
-			<div className ='App'>
-				<header className='App-header'>
-					<h1 className='App-title'>Recipe Box</h1>
-				</header>
-			</div>
 			<Router>
 				<div>
 					<Switch>
-						<Route path='/recipebox' component={RecipeBox}/>
-						<Route path ='/categories' component={CategoryCard}/>
-						<Route path='/recipes' component={RecipeCard}/>
+						<Route path='/recipebox' render={props => (
+							<RecipeBox categories={data.categories}/>
+						)}/>
+						<Route path='/category/:catid' render={props => {
+          					const {catid} = props.match.params;
+          						return (
+            						<CategoryCard recipes={data.categories[catid].recipes}/>
+          						)
+        					}}/>
+						<Route path='/recipe/:catid/:rid' render={props => {
+						 	const {catid, rid} = props.match.params;
+						 		return (
+						 			<RecipeCard recipe={data.categories[catid].recipes[rid]}/>
+						 		)
+						 	}}/>
 					</Switch>
 				</div>
 			</Router>
@@ -58,3 +65,9 @@ class App extends Component {
 
 
 export default App;
+
+{/*<div className ='App'>
+	<header className='App-header'>
+	<h1 className='App-title'>Recipe Box</h1>
+	</header>
+</div>*/}
