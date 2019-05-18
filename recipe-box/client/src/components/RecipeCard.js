@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-class RecipeCard extends Component {
+const mapStateToProps = (state, ownProps) => 
+	({
+		recipe: state.recipes.byId[ownProps.id]
+	})
+
+class RecipeCardPresentation extends Component {
 	constructor(props) {
 	super(props)
 	
-		this.state = {
+		/*this.state = {
 			recipe: {}
-		};
+		};*/
 	}
 	render() {
 	
-		const { recipe } = this.state;
+		const { recipe } = this.props;
 		
 		return (
 			<div>
@@ -21,7 +27,7 @@ class RecipeCard extends Component {
 		)
 	}
 	
-	componentDidMount() {
+	/*componentDidMount() {
 		fetch('http://localhost:3001/recipes/' +this.props.id)
 			.then(response => response.json())
 			.then(data => {
@@ -29,8 +35,11 @@ class RecipeCard extends Component {
 					recipe: data
 				})
 			})
-	}	
+	}*/	
 
 };
+
+const RecipeCard = connect(mapStateToProps, null)(RecipeCardPresentation);
+	/*null to later be replaced by mapDispatchToProps*/
 
 export default RecipeCard;
