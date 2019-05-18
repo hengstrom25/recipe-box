@@ -18,7 +18,7 @@ class CategoryCard extends Component {
 			return (
 				<ul>
 					{recipes.map(recipe => (
-						<li key={recipe.name}>{recipe.name}
+						<li key={recipe.name}>
 							<Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
 						</li>
 					))}

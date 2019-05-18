@@ -66,13 +66,14 @@ class App extends Component {
 						<Route path='/category/:catid' render={props => {
           					const {catid} = props.match.params;
           						return (
-            						<CategoryCard recipes={data.categories[catid].recipes}/>
+            						<CategoryCard recipes={data.categories[catid].recipes.map(rid => 
+            							data.recipes[rid])}/>
           						)
         					}}/>
 						<Route path='/recipe/:rid' render={props => {
 						 	const {rid} = props.match.params;
 						 		return (
-						 			<RecipeCard recipe={data.categories.recipes[rid]}/>
+						 			<RecipeCard recipe={data.recipes[rid]}/>
 						 		)
 						 	}}/>
 					</Switch>
