@@ -5,10 +5,10 @@ require 'bootsnap/setup' # Speed up boot time by caching expensive operations.
 
 #require 'rails/commands/server'
 
-module Rails
-	class Server
-		def default_options
-			super.merge({Port: 3001})
-		end
-	end
-end
+#module Rails
+#	class Server
+#		def default_options
+#			super.merge({Port: 3001})
+#		end
+#	end
+#end

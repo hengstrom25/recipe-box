@@ -11,7 +11,7 @@ class RecipeBox extends Component {
 	}
 	render() {
 	
-		const { categories } = this.props;
+		const { categories } = this.state;
 		
 		return (
 			<ul>
@@ -22,6 +22,16 @@ class RecipeBox extends Component {
 				))}
 			</ul>
 		)
+	}
+	
+	componentDidMount() {
+		fetch('http://localhost:3001/categories')
+			.then(response => response.json())
+			.then(data => {
+				this.setState({
+					categories: data
+				})
+			})
 	}
 
 };
