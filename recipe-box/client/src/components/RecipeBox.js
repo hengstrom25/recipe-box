@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Link} from 'react-router-dom';
 
 class RecipeBox extends Component {
 	constructor(props) {
@@ -15,7 +16,9 @@ class RecipeBox extends Component {
 		return (
 			<ul>
 				{categories.map(category => (
-					<li key={category.name}>{category.name}</li>
+					<li key={category.name}>
+						<Link to={`/category/${category.id}`}>{category.name}</Link>
+					</li>
 				))}
 			</ul>
 		)

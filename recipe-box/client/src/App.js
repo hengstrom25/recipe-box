@@ -8,14 +8,34 @@ import RecipeBox from './components/RecipeBox';
 import RecipeCard from './components/RecipeCard';
 import Home from './components/Home';
 
-const data = {categories: [
+const data = {
+	categories: [
+		{name: "Salads", id: 0,
+			recipes: [ 0, 1 ] }
+		{name: "Desserts", id: 1,
+			recipes: [ 2 ] } ],
+	recipes: [
+		{name: "Mom's Tossed Salad", id: 0, category_id: 0,
+		 recipe_field: "http://greatcooks.com/blah/123",
+		 notes: "This is a good salad"},
+		{name: "Dad's Potato Salad", id: 1, category_id: 0,
+		 recipe_field: "http://goodstuff.com/abc/456",
+		 notes: "Many calories"}
+		{name: "Chocolate Cake", id: 2, category_id: 1, 
+		 recipe_field: "http://easybake.com/xyz/999",
+		 notes: "Love it"}
+	]
+};
+		
+
+{/*const data = {categories: [
   {name: "Salads", id: 0,
    recipes: [
-      {name: "Mom's Tossed Salad", id: 0,
+      {name: "Mom's Tossed Salad", id: 0, category_id: 0,
        url: "http://greatcooks.com/blah/123",
        comments: "This is a good salad"
       },
-     {name: "Dad's Potato Salad", id: 1,
+     {name: "Dad's Potato Salad", id: 1, category_id: 0,
       url: "http://goodstuff.com/abc/456",
       comments: "Many calories"
      }
@@ -23,14 +43,14 @@ const data = {categories: [
   },
   {name: "Desserts", id: 1,
     recipes: [
-      {name: "Chocolate Cake", id: 0,
+      {name: "Chocolate Cake", id: 2, category_id: 1,
        url: "http://easybake.com/xyz/999",
        comments: "Love it"
       }
    ]
 }
 ]
-};
+};*/}
 
 class App extends Component {
 	render() {
@@ -49,10 +69,10 @@ class App extends Component {
             						<CategoryCard recipes={data.categories[catid].recipes}/>
           						)
         					}}/>
-						<Route path='/recipe/:catid/:rid' render={props => {
-						 	const {catid, rid} = props.match.params;
+						<Route path='/recipe/:rid' render={props => {
+						 	const {rid} = props.match.params;
 						 		return (
-						 			<RecipeCard recipe={data.categories[catid].recipes[rid]}/>
+						 			<RecipeCard recipe={data.categories.recipes[rid]}/>
 						 		)
 						 	}}/>
 					</Switch>

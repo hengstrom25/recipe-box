@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Link} from 'react-router-dom';
 
 class CategoryCard extends Component {
 
@@ -17,7 +18,9 @@ class CategoryCard extends Component {
 			return (
 				<ul>
 					{recipes.map(recipe => (
-						<li key={recipe.name}>{recipe.name}</li>
+						<li key={recipe.name}>{recipe.name}
+							<Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
+						</li>
 					))}
 				</ul>			
 			)
@@ -27,4 +30,6 @@ class CategoryCard extends Component {
 };
 
 export default CategoryCard;
+
+
 
