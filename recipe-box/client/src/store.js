@@ -2,7 +2,8 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import recipes from './reducers/recipesReducer';
 
-const reducers = combineReducers({ recipes });
+/*const reducers = combineReducers({ recipes });*/
+
 
 const initialState = 
 {
@@ -34,7 +35,7 @@ const initialState =
 				id: 2,
 				name: "Dad's Potato Salad",
 				recipe_field: "http://goodstuff.com/abc/456",
-				notes: "Many Calories"
+				notes: "Many Calories",
 				category_id: 1,
 			},
 			3: {
@@ -48,10 +49,14 @@ const initialState =
 		allIds: [1, 2, 3]
 	},
 }
+
+function myReducer(state=initialState, action) {
+	return state
+}
 				
 
 export default createStore(
-	reducers, 
+	myReducer, 
 	window._REDUX_DEVTOOLS_EXTENSION_ && window._REDUX_DEVTOOLS_EXTENSION_(),
 	applyMiddleware(thunk)
 )
