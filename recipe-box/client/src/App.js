@@ -11,7 +11,7 @@ import Home from './components/Home';
 const data = {
 	categories: [
 		{name: "Salads", id: 0,
-			recipes: [ 0, 1 ] }
+			recipes: [ 0, 1 ] },
 		{name: "Desserts", id: 1,
 			recipes: [ 2 ] } ],
 	recipes: [
@@ -20,7 +20,7 @@ const data = {
 		 notes: "This is a good salad"},
 		{name: "Dad's Potato Salad", id: 1, category_id: 0,
 		 recipe_field: "http://goodstuff.com/abc/456",
-		 notes: "Many calories"}
+		 notes: "Many calories"},
 		{name: "Chocolate Cake", id: 2, category_id: 1, 
 		 recipe_field: "http://easybake.com/xyz/999",
 		 notes: "Love it"}
