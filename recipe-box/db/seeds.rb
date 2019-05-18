@@ -57,6 +57,10 @@ category = Category.create([{
 	{
 	name: 'Dessert',
 	user_id: 2
+	},
+	{
+	name: 'Salads',
+	user_id: 2
 	}
 	])
 	
@@ -65,5 +69,27 @@ recipe = Recipe.create([{
 	recipe_field: 'https://www.foodnetwork.com/recipes/ina-garten/slow-cooked-scrambled-eggs-with-caviar-recipe-1941943',
 	notes: 'Must try next time there is caviar in the house',
 	category_id: 1
+	},
+	{
+	name: "Mom's Tossed Salad", 
+	recipe_field: "http://greatcooks.com/blah/123",
+	notes: "This is a good salad",
+	category_id: 11
+	},
+	{
+	name: "Dad's Potato Salad",
+	recipe_field: "http://goodstuff.com/abc/456",
+	notes: "Many calories",
+	category_id: 11
+	},
+	{
+	name: "Chocolate Cake",
+	recipe_field: "http://easybake.com/xyz/999",
+	notes: "Love it",
+	category_id: 10
 	}
 	])
+	
+	
+
+	
