@@ -15,8 +15,8 @@ class RecipeCard extends Component {
 		return (
 			<div>
 				<p>name: {recipe.name}</p>
-				<p>url: {recipe.url}</p>
-				<p>comments: {recipe.comments}</p>
+				<p>recipe: {recipe.recipe_field}</p>
+				<p>notes: {recipe.notes}</p>
 			</div>
 		)
 	}
