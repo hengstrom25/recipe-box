@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link} from 'react-router-dom';
+import { connect } from 'react-redux';
 
-class CategoryCard extends Component {
+const mapStateToProps = (state, ownProps) => 
+	({
+		recipes: state.categories.byId[ownProps.id].recipes.map(id => state.recipes.byId[id])
+	})
+
+class CategoryCardPresentation extends Component {
 
 	constructor(props) {
 		super(props)
 		
-			this.state = {
+			/*this.state = {
 				recipes: []
-			};
+			};*/
 		}
 		
 	render() {
 		
-			const { recipes } = this.state;
+			const { recipes } = this.props;
 			
 			return (
 				<ul>
@@ -28,7 +34,7 @@ class CategoryCard extends Component {
 		}
 		
 			
-	componentDidMount() {
+	/*componentDidMount() {
 		fetch('http://localhost:3001/categories/' +this.props.id +'/recipes')
 			.then(response => response.json())
 			.then(data => {
@@ -36,10 +42,13 @@ class CategoryCard extends Component {
 					recipes: data
 				})
 			})
-	}
+	}*/
 
 
 };
+
+const CategoryCard = connect(mapStateToProps, null)(CategoryCardPresentation);
+	/*null to later be replaced by mapDispatchToProps*/
 
 export default CategoryCard;
 
