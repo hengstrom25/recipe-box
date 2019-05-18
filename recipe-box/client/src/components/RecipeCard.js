@@ -5,12 +5,12 @@ class RecipeCard extends Component {
 	super(props)
 	
 		this.state = {
-			recipes: []
+			recipe: {}
 		};
 	}
 	render() {
 	
-		const { recipe } = this.props;
+		const { recipe } = this.state;
 		
 		return (
 			<div>
@@ -20,6 +20,16 @@ class RecipeCard extends Component {
 			</div>
 		)
 	}
+	
+	componentDidMount() {
+		fetch('http://localhost:3001/recipes/' +this.props.id)
+			.then(response => response.json())
+			.then(data => {
+				this.setState({
+					recipe: data
+				})
+			})
+	}	
 
 };
 

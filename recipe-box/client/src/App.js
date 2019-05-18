@@ -28,30 +28,6 @@ const data = {
 };
 		
 
-{/*const data = {categories: [
-  {name: "Salads", id: 0,
-   recipes: [
-      {name: "Mom's Tossed Salad", id: 0, category_id: 0,
-       url: "http://greatcooks.com/blah/123",
-       comments: "This is a good salad"
-      },
-     {name: "Dad's Potato Salad", id: 1, category_id: 0,
-      url: "http://goodstuff.com/abc/456",
-      comments: "Many calories"
-     }
-   ]
-  },
-  {name: "Desserts", id: 1,
-    recipes: [
-      {name: "Chocolate Cake", id: 2, category_id: 1,
-       url: "http://easybake.com/xyz/999",
-       comments: "Love it"
-      }
-   ]
-}
-]
-};*/}
-
 class App extends Component {
 	render() {
 		return (
@@ -70,7 +46,7 @@ class App extends Component {
 						<Route path='/recipe/:rid' render={props => {
 						 	const {rid} = props.match.params;
 						 		return (
-						 			<RecipeCard recipe={data.recipes[rid]}/>
+						 			<RecipeCard id={rid}/>
 						 		)
 						 	}}/>
 					</Switch>
