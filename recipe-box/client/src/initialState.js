@@ -13,7 +13,9 @@ const initialState =
 				recipes: [3],
 			},
 		},
-		allIds: [1, 2]
+		allIds: [1, 2],
+		fetched: false, 
+		fetching: false
 	},
 	recipes: {
 		byId: {
@@ -39,6 +41,8 @@ const initialState =
 				category_id: 2,
 			},
 		},
-		allIds: [1, 2, 3]
+		allIds: [1, 2, 3],
+		fetched: false,
+		fetching:false	
 	},
 }

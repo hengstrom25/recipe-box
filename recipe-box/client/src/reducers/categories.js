@@ -2,6 +2,25 @@ import initialState from '../initialState.js'
 
 export default (state = initialState.categories, action) => {
 	switch (action.type) {
+	
+		case 'REQUEST_CATEGORIES': {
+			return Object.assign({}, state, {
+				fetching: true,
+			})
+		}
+		
+		case 'RECEIVE_CATEGORIES': {
+			return Object.assign({}, state, {
+				fetching: false,
+				fetched: true,
+				allIds: actions.categories.map(category => category.id),
+				byId: actions.categories.reduce((obj, cat) => {
+					obj[cat.id] = cat;
+					return obj	
+				}, {})
+			})
+		}
+		
 		case 'ADD_CATEGORY': {
 			return state.concat(action.category);
 		}	
