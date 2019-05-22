@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link} from 'react-router-dom';
 import { connect } from 'react-redux';
+import store from '../store.js';
+import { fetchCategories } from '../actions/categories';
 
 const mapStateToProps = state => 
 	({
@@ -22,7 +24,7 @@ class RecipeBoxPresentation extends Component {
 		return (
 			<ul>
 				{categories.map(category => (
-					<li key={category.name}>
+					<li key={category.id}>
 						<Link to={`/category/${category.id}`}>{category.name}</Link>
 					</li>
 				))}
@@ -30,15 +32,10 @@ class RecipeBoxPresentation extends Component {
 		)
 	}
 	
-	/*componentDidMount() {
-		fetch('http://localhost:3001/categories')
-			.then(response => response.json())
-			.then(data => {
-				this.setState({
-					categories: data
-				})
-			})
-	}*/
+	componentDidMount() {
+		store.dispatch(fetchCategories())
+		console.log('component did mount')
+	}
 
 };
 

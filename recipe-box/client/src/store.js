@@ -1,17 +1,12 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import recipes from './reducers/recipesReducer';
+import categories from './reducers/categories';
+import recipes from './reducers/recipes';
 
-/*const reducers = combineReducers({ recipes });*/
-
-
-function myReducer(state=initialState, action) {
-	return state
-}
-				
+const reducers = combineReducers({ categories, recipes });				
 
 export default createStore(
-	myReducer, 
+	reducers, 
 	window._REDUX_DEVTOOLS_EXTENSION_ && window._REDUX_DEVTOOLS_EXTENSION_(),
 	applyMiddleware(thunk)
 )

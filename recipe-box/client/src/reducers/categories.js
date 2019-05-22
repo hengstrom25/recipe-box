@@ -13,8 +13,8 @@ export default (state = initialState.categories, action) => {
 			return Object.assign({}, state, {
 				fetching: false,
 				fetched: true,
-				allIds: actions.categories.map(category => category.id),
-				byId: actions.categories.reduce((obj, cat) => {
+				allIds: action.categories.map(category => category.id),
+				byId: action.categories.reduce((obj, cat) => {
 					obj[cat.id] = cat;
 					return obj	
 				}, {})

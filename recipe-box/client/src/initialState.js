@@ -46,3 +46,5 @@ const initialState =
 		fetching:false	
 	},
 }
+
+export default initialState
