@@ -2,6 +2,25 @@ import initialState from '../initialState.js'
 
 export default (state = initialState.recipes, action) => {
 	switch (action.type) {
+	
+		case 'REQUEST_RECIPES': {
+			return Object.assign({}, state, {
+				fetching: true,
+			})
+		}
+		
+		case 'RECEIVE_RECIPES': {
+			return Object.assign({}, state, {
+				fetching: false,
+				fetched: true,
+				allIds: action.recipes.map(recipe => recipe.id),
+				byId: action.recipes.reduce((obj, rec) => {
+					obj[rec.id] = rec;
+					return obj	
+				}, {})
+			})
+		}
+		
 		case 'ADD_RECIPE': {
 			return state.concat(action.recipe);
 		}	

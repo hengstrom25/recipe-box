@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link} from 'react-router-dom';
 import { connect } from 'react-redux';
+import store from '../store.js';
+import { fetchRecipes } from '../actions/recipes';
 
 const mapStateToProps = (state, ownProps) => 
 	({
@@ -34,15 +36,10 @@ class CategoryCardPresentation extends Component {
 		}
 		
 			
-	/*componentDidMount() {
-		fetch('http://localhost:3001/categories/' +this.props.id +'/recipes')
-			.then(response => response.json())
-			.then(data => {
-				this.setState({
-					recipes: data
-				})
-			})
-	}*/
+	componentDidMount() {
+		store.dispatch(fetchRecipes())
+		console.log('component did mount')
+	}
 
 
 };
