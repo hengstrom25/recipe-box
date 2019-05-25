@@ -12,7 +12,7 @@ export const RECEIVE_RECIPES = 'RECEIVE_RECIPES'
 export function receiveRecipes(json) {
 	return {
 		type: RECEIVE_RECIPES,
-		categories: json
+		recipes: json
 	}
 }
 

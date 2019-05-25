@@ -6,9 +6,11 @@ import { fetchRecipes } from '../actions/recipes';
 
 const mapStateToProps = (state, ownProps) => 
 	({
-		recipes: state.categories.byId[ownProps.id].recipes.map(id => state.recipes.byId[id])
+		id: ownProps.id,
+		recipes: state.recipes.allIds.map(id => state.recipes.byId[id])
 	})
 
+/*recipes: state.categories.byId[ownProps.id].recipes.map(id => state.recipes.byId[id])*/
 class CategoryCardPresentation extends Component {
 
 	constructor(props) {
@@ -26,7 +28,7 @@ class CategoryCardPresentation extends Component {
 			return (
 				<ul>
 					{recipes.map(recipe => (
-						<li key={recipe.name}>
+						<li key={recipe.id}>
 							<Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
 						</li>
 					))}
@@ -37,7 +39,7 @@ class CategoryCardPresentation extends Component {
 		
 			
 	componentDidMount() {
-		store.dispatch(fetchRecipes())
+		store.dispatch(fetchRecipes(this.props.id))
 		console.log('component did mount')
 	}
 
