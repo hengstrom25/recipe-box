@@ -3,13 +3,13 @@ import initialState from '../initialState.js'
 export default (state = initialState.recipes, action) => {
 	switch (action.type) {
 	
-		case 'REQUEST_RECIPES': {
+		case 'REQUEST_RECIPE': {
 			return Object.assign({}, state, {
 				fetching: true,
 			})
 		}
 		
-		case 'RECEIVE_RECIPES': {
+		case 'RECEIVE_RECIPE': {
 			return Object.assign({}, state, {
 				fetching: false,
 				fetched: true,
@@ -20,24 +20,6 @@ export default (state = initialState.recipes, action) => {
 				}, {})
 			})
 		}
-		
-		case 'REQUEST_RECIPE': {
-			return Object.assign({}, state, {
-				fetching: true,
-			})
-		}
-		
-		case 'RECEIVE_RECIPE': {
-		let obj = {}
-		obj[action.recipe.id]=action.recipe
-			return Object.assign({}, state, {
-				fetching: false,
-				fetched: true,
-				allIds: [action.recipe.id],
-				byId: obj
-			})
-		}
-		
 		
 		case 'ADD_RECIPE': {
 			return state.concat(action.recipe);

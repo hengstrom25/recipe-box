@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import '../index.css';
+import store from '../store.js';
+import { fetchRecipe } from '../actions/recipes';
 
 const mapStateToProps = (state, ownProps) => 
 	({
@@ -19,7 +22,7 @@ class RecipeCardPresentation extends Component {
 		const { recipe } = this.props;
 		
 		return (
-			<div>
+			<div className='recipe_card'>
 				<p>name: {recipe.name}</p>
 				<p>recipe: {recipe.recipe_field}</p>
 				<p>notes: {recipe.notes}</p>
@@ -27,15 +30,9 @@ class RecipeCardPresentation extends Component {
 		)
 	}
 	
-	/*componentDidMount() {
-		fetch('http://localhost:3001/recipes/' +this.props.id)
-			.then(response => response.json())
-			.then(data => {
-				this.setState({
-					recipe: data
-				})
-			})
-	}*/	
+	componentDidMount() {
+	 	store.dispatch(fetchRecipe(this.props.id))
+	}	
 
 };
 

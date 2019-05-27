@@ -12,3 +12,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.recipe_card {
+	margin: 10;
+	text-indent: 10px;
+	border-style: double;
+	border-width: 3px;
+	border-color: black;
+	border-radius: 3px;
+}
