@@ -34,7 +34,6 @@ export function requestRecipe() {
 	}
 }
 
-/*will need id argument somewhere*/
 export const RECEIVE_RECIPE = 'RECEIVE_RECIPE'
 
 export function receiveRecipe(json) {
@@ -44,7 +43,6 @@ export function receiveRecipe(json) {
 	}
 }
 
-/*will need argument of category.id in fetchRecipes*/
 export function fetchRecipe(recipe_id) {
 	return dispatch => {
 		dispatch(requestRecipe())

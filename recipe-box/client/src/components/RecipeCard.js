@@ -5,9 +5,11 @@ import store from '../store.js';
 import { fetchRecipe } from '../actions/recipes';
 
 const mapStateToProps = (state, ownProps) => 
-	({
-		recipe: state.recipes.byId[ownProps.id]
-	})
+	{const recipe=state.recipes.byId[ownProps.id]
+		return {
+		recipe: recipe,
+		category: state.categories.byId[recipe.category_id]
+	}}
 
 class RecipeCardPresentation extends Component {
 	constructor(props) {
@@ -19,10 +21,11 @@ class RecipeCardPresentation extends Component {
 	}
 	render() {
 	
-		const { recipe } = this.props;
+		const { recipe, category } = this.props;
 		
 		return (
 			<div className='recipe_card'>
+				<p>category: {category.name}</p>
 				<p>name: {recipe.name}</p>
 				<p>recipe: {recipe.recipe_field}</p>
 				<p>notes: {recipe.notes}</p>
