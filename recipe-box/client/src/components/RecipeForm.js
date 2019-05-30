@@ -6,9 +6,31 @@ class RecipeForm extends Component {
 		
 		this.state = {
 			name: '',
-			
+			recipe: '',
+			notes: '',
 		};
 	};
+	
+	return(
+		<div>
+			<label>name: </label>
+			<input
+				type="text"
+			/>
+		</div>
+		<div>
+			<label>recipe: </label>
+			<input
+				type="text"
+			/>
+		</div>
+		<div>
+			<label>notes: </label>
+			<input
+				type="text"
+			/>
+		</div>
+	)
 
 }
 
