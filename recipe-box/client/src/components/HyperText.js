@@ -20,7 +20,7 @@ class HyperText extends React.Component {
 						</a>
 					)
 				} else {
-					return token + maybeSpace + "x";
+					return token + maybeSpace;
 				}	
 			});
 		} else {

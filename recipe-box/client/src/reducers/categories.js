@@ -21,6 +21,25 @@ export default (state = initialState.categories, action) => {
 			})
 		}
 		
+		case 'REQUEST_CATEGORY': {
+			return Object.assign({}, state, {
+				fetching: true,
+			})
+		}
+		
+		case 'RECEIVE_CATEGORY': {
+		let obj = {}
+		obj[action.category.id]=action.category
+			return Object.assign({}, state, {
+				fetching: false,
+				fetched: true,
+				allIds: [action.category.id],
+				byId: obj
+			})
+		}
+		
+		
+		
 		case 'ADD_CATEGORY': {
 			return state.concat(action.category);
 		}	

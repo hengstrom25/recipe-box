@@ -23,3 +23,29 @@ export function fetchCategories() {
 			.then(json => dispatch(receiveCategories(json)))
 	}
 }
+
+export const REQUEST_CATEGORY = 'REQUEST_CATEGORY'
+
+export function requestCategory() {
+	return {
+		type: REQUEST_CATEGORY
+	}
+}
+
+export const RECEIVE_CATEGORY= 'RECEIVE_CATEGORY'
+
+export function receiveCategory(json) {
+	return {
+		type: RECEIVE_CATEGORY,
+		category: json
+	}
+}
+
+export function fetchCategory(category_id) {
+	return dispatch => {
+		dispatch(requestCategory())
+		return fetch('http://localhost:3001/categories/' + category_id)
+			.then(response => response.json())
+			.then(json => dispatch(receiveCategory(json)))
+	}
+}

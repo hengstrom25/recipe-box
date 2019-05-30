@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import '../index.css';
 import store from '../store.js';
 import { fetchRecipe } from '../actions/recipes';
+import { fetchCategory } from '../actions/categories';
 import HyperText from './HyperText';
+
 
 const mapStateToProps = (state, ownProps) => 
 	{const recipe=state.recipes.byId[ownProps.id]
@@ -41,7 +43,8 @@ class RecipeCardPresentation extends Component {
 	}
 	
 	componentDidMount() {
-	 	store.dispatch(fetchRecipe(this.props.id))
+	 	store.dispatch(fetchRecipe(this.props.id)) 
+	 	store.dispatch(fetchCategory(this.props.recipe.category_id))
 	}	
 
 };
