@@ -32,7 +32,8 @@ class CategoryCardPresentation extends Component {
 							<Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
 						</li>
 					))}
-				</ul>			
+				</ul>
+							
 			)
 		
 		}

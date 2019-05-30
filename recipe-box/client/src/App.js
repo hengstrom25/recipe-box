@@ -6,6 +6,7 @@ import './App.css';
 import CategoryCard from './components/CategoryCard';
 import RecipeBox from './components/RecipeBox';
 import RecipeCard from './components/RecipeCard';
+import RecipeForm from './components/RecipeForm';
 import Home from './components/Home';
 
 const data = {
@@ -37,6 +38,12 @@ class App extends Component {
 					<Switch>
 						<Route exact path='/' component={Home}/>
 						<Route path='/recipebox' component={RecipeBox}/>
+						 	 <Route path='/category/:catid/newrecipe' render={props => {
+						 	const {catid} = props.match.params;
+						 		return (
+						 			<RecipeForm category_id={catid}/>
+						 		)
+						 	}}/>
 						<Route path='/category/:catid' render={props => {
           					const {catid} = props.match.params;
           						return (
@@ -49,6 +56,7 @@ class App extends Component {
 						 			<RecipeCard id={rid}/>
 						 		)
 						 	}}/>
+					
 					</Switch>
 				</div>
 			</Router>
