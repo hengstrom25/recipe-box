@@ -23,17 +23,19 @@ class CategoryCardPresentation extends Component {
 		
 	render() {
 		
-			const { recipes } = this.props;
+			const { recipes, id } = this.props;
 			
 			return (
-				<ul>
-					{recipes.map(recipe => (
-						<li key={recipe.id}>
-							<Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
-						</li>
-					))}
-				</ul>
-							
+				<div>
+					<ul>
+						{recipes.map(recipe => (
+							<li key={recipe.id}>
+								<Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
+							</li>
+						))}
+					</ul>
+					<Link to={`/category/${id}/newrecipe`}>Add New Recipe</Link>	
+				</div>	
 			)
 		
 		}

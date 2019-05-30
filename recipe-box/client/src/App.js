@@ -38,7 +38,7 @@ class App extends Component {
 					<Switch>
 						<Route exact path='/' component={Home}/>
 						<Route path='/recipebox' component={RecipeBox}/>
-						 	 <Route path='/category/:catid/newrecipe' render={props => {
+						<Route path='/category/:catid/newrecipe' render={props => {
 						 	const {catid} = props.match.params;
 						 		return (
 						 			<RecipeForm category_id={catid}/>
