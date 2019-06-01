@@ -25,15 +25,14 @@ import CategorySelector from '../components/CategorySelector';
 	
 	render() {*/
 
-	
-	
+		
 	let RecipeForm = props => {
 		const { handleSubmit } = props
 		return (
 			<form onSubmit={handleSubmit}>
 				<h1>Add New Recipe</h1>
 					<div>
-					<label>Select Category</label>
+					<label for="category">Select Category</label>
 					<Field 
 						name="categorySelector" 
 						component="select"
@@ -42,16 +41,24 @@ import CategorySelector from '../components/CategorySelector';
 					{}
 					</Field>
 				</div>
-				<p>
-					<label>recipe: </label>
+				<div>
+					<label for="name">name: </label>
 						<input type="text"
 						/>
-				</p>
-				<p>
-					<label>notes: </label>
-						<input type="text"
-						/>
-				</p>
+				</div>
+				<div>
+					<label for="recipe_field">recipe: </label>
+						<textarea>Enter URL or Recipe
+						</textarea>
+				</div>
+				<div>
+					<label for="notes">notes: </label>
+						<textarea>
+						</textarea>
+				</div>
+				<div>
+					<button type="submit">Save</button>
+				</div>
 			</form>
 		)
 		}
