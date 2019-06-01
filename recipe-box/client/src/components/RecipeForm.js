@@ -1,30 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import CategorySelector from '../components/CategorySelector';
-
-/*class RecipeForm extends Component {
-	constructor(props) {
-		super(props);
-		
-		this.state = {
-			newRecipe: {
-				category: '',
-				name: '',
-				recipe: '',
-				notes: '',
-			},
-	
-		};
-	
-	this.handleFormSubmit = this.handleFormSubmit.bind(this);
-	}
-	
-	handleFormSubmit() {
-	
-	}
-	
-	render() {*/
-
 		
 	let RecipeForm = props => {
 		const { handleSubmit } = props

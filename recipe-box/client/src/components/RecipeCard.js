@@ -14,18 +14,10 @@ const mapStateToProps = (state, ownProps) =>
 		category: state.categories.byId[recipe.category_id]
 	}}
 	
-/*function isURL(str) {
-	const regex = /(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
-		return regex .test(str)
-	}*/	
-	
 class RecipeCardPresentation extends Component {
 	constructor(props) {
 	super(props)
 	
-		/*this.state = {
-			recipe: {}
-		};*/
 	}
 	
 	render() {

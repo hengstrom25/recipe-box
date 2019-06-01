@@ -6,7 +6,7 @@ class NewRecipe extends React.Component {
 		console.log(values)
 	}
 	render() {
-		return <RecipeForm onSubmit={this.submit}
+		return <RecipeForm onSubmit={this.submit}/>
 	}
 }
 

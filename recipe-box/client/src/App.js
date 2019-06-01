@@ -8,6 +8,7 @@ import RecipeBox from './components/RecipeBox';
 import RecipeCard from './components/RecipeCard';
 import RecipeForm from './components/RecipeForm';
 import Home from './components/Home';
+import NewRecipe from './components/NewRecipe';
 
 const data = {
 	categories: [
@@ -41,7 +42,7 @@ class App extends Component {
 						<Route path='/category/:catid/newrecipe' render={props => {
 						 	const {catid} = props.match.params;
 						 		return (
-						 			<RecipeForm category_id={catid}/>
+						 			<NewRecipe category_id={catid}/>
 						 		)
 						 	}}/>
 						<Route path='/category/:catid' render={props => {
