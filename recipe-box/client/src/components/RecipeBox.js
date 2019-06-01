@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import store from '../store.js';
 import { fetchCategories } from '../actions/categories';
 
+
 const mapStateToProps = state => 
 	({
 		categories: state.categories.allIds.map(id => state.categories.byId[id])

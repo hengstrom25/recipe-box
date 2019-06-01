@@ -9,6 +9,7 @@ import RecipeCard from './components/RecipeCard';
 import RecipeForm from './components/RecipeForm';
 import Home from './components/Home';
 import NewRecipe from './components/NewRecipe';
+import NavBar from './components/nav/NavBar';
 
 const data = {
 	categories: [
@@ -36,6 +37,7 @@ class App extends Component {
 		<div>
 			<Router>
 				<div>
+					<NavBar />
 					<Switch>
 						<Route exact path='/' component={Home}/>
 						<Route path='/recipebox' component={RecipeBox}/>
