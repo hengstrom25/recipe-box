@@ -16,24 +16,27 @@ class RecipeForm extends Component {
 	
 	return(
 		<div>
-			<div>
+			<h1>Add New Recipe</h1>
+			<form onSubmit={event => this.handleOnSubmit(event)}>
+			<p>
 				<label>name: </label>
 				<input
-					type="text"
+					type="text" onChange={(event) => this.handleChange(event)}
 				/>
-			</div>
-			<div>
+			</p>
+			<p>
 				<label>recipe: </label>
 				<input
 					type="text"
 				/>
-			</div>
-			<div>
+			</p>
+			<p>
 				<label>notes: </label>
 				<input
 					type="text"
 				/>
-			</div>
+			</p>
+				<input type="submit" />
 		</div>
 	)
 	}

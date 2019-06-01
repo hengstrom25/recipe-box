@@ -6,7 +6,7 @@ import './App.css';
 import CategoryCard from './components/CategoryCard';
 import RecipeBox from './components/RecipeBox';
 import RecipeCard from './components/RecipeCard';
-import RecipeForm from './components/RecipeForm';
+import RecipeForm from './containers/RecipeForm';
 import Home from './components/Home';
 
 const data = {
