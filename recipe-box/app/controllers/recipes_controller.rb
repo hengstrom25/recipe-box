@@ -11,6 +11,16 @@ class RecipesController < ApplicationController
 		render json: recipe
 	end
 	
+	def new
+		recipe = Recipe.new
+	end
+	
+	def create
+    	recipe = Recipe.create
+    	render json: recipe, status: 201
+	end
+	
+	
 
 
 end
