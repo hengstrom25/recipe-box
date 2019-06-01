@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Field, reduxForm } from 'redux-form';
 
 class RecipeForm extends Component {
 	constructor(props) {
@@ -10,9 +11,9 @@ class RecipeForm extends Component {
 				name: '',
 				recipe: '',
 				notes: '',
-			};
+			},
 		
-		/*categoryOptions: ['Breakfast', 'Salad', 'Soup', 'Side Dishes', 'Meat Dishes', 'Vegetarian', 'Pasta', 'Dessert', 'Other']*/
+		/*categoryOptions: ['Breakfast', 'Salad', 'Soup', 'Side Dishes', 'Meat Dishes', 'Vegetarian', 'Pasta', 'Dessert', 'Other'],*/
 		};
 	
 	this.handleFormSubmit = this.handleFormSubmit.bind(this);
