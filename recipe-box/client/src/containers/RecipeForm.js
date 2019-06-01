@@ -5,11 +5,22 @@ class RecipeForm extends Component {
 		super(props);
 		
 		this.state = {
-			name: '',
-			recipe: '',
-			notes: '',
+			newRecipe: {
+				category: '',
+				name: '',
+				recipe: '',
+				notes: '',
+			};
+		
+		/*categoryOptions: ['Breakfast', 'Salad', 'Soup', 'Side Dishes', 'Meat Dishes', 'Vegetarian', 'Pasta', 'Dessert', 'Other']*/
 		};
-	};
+	
+	this.handleFormSubmit = this.handleFormSubmit.bind(this);
+	}
+	
+	handleFormSubmit() {
+	
+	}
 	
 	render() {
 	
@@ -17,13 +28,9 @@ class RecipeForm extends Component {
 	return(
 		<div>
 			<h1>Add New Recipe</h1>
-			<form onSubmit={event => this.handleOnSubmit(event)}>
-			<p>
-				<label>name: </label>
-				<input
-					type="text" onChange={(event) => this.handleChange(event)}
-				/>
-			</p>
+			<form onSubmit={this.handleFormSubmit}>
+				<p>
+				<label>category: </label>
 			<p>
 				<label>recipe: </label>
 				<input
@@ -36,7 +43,7 @@ class RecipeForm extends Component {
 					type="text"
 				/>
 			</p>
-				<input type="submit" />
+			</form>
 		</div>
 	)
 	}
