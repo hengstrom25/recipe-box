@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-class RecipeForm extends Component {
+/*class RecipeForm extends Component {
 	constructor(props) {
 		super(props);
 		
@@ -13,7 +13,7 @@ class RecipeForm extends Component {
 				notes: '',
 			},
 		
-		/*categoryOptions: ['Breakfast', 'Salad', 'Soup', 'Side Dishes', 'Meat Dishes', 'Vegetarian', 'Pasta', 'Dessert', 'Other'],*/
+		/*categoryOptions: ['Breakfast', 'Salad', 'Soup', 'Side Dishes', 'Meat Dishes', 'Vegetarian', 'Pasta', 'Dessert', 'Other'],
 		};
 	
 	this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -23,32 +23,42 @@ class RecipeForm extends Component {
 	
 	}
 	
-	render() {
+	render() {*/
 	
-	
-	return(
-		<div>
-			<h1>Add New Recipe</h1>
-			<form onSubmit={this.handleFormSubmit}>
+	let RecipeForm = props => {
+		const { handleSubmit } = props
+		return (
+			<form onSubmit={handleSubmit}>
+				<h1>Add New Recipe</h1>
+					<div>
+				<Field name="category" component="select">
+					<option />
+					<option>Breakfast</option>		
+					<option>Salad</option>
+					<option>Soup</option>
+					<option>Side Dishes</option>
+								
+				</Field>
+				</div>
 				<p>
-				<label>category: </label>
-			<p>
-				<label>recipe: </label>
-				<input
-					type="text"
-				/>
-			</p>
-			<p>
-				<label>notes: </label>
-				<input
-					type="text"
-				/>
-			</p>
+					<label>recipe: </label>
+						<input type="text"
+						/>
+				</p>
+				<p>
+					<label>notes: </label>
+						<input type="text"
+						/>
+				</p>
 			</form>
-		</div>
-	)
-	}
+		)
+		}
+	
+	
+	RecipeForm= reduxForm({
+		form: 'recipeform'
+	})(RecipeForm)
+	
 
-}
 
 export default RecipeForm
