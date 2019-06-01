@@ -7,30 +7,17 @@ import CategorySelector from '../components/CategorySelector';
 		return (
 			<form onSubmit={handleSubmit}>
 				<h1>Add New Recipe</h1>
-					<div>
-					<label for="category">Select Category</label>
-					<Field 
-						name="categorySelector" 
-						component="select"
-						//category={category}
-					>
-					{}
-					</Field>
+				<div>
+					<label htmlFor="name">name: </label>
+					<Field name="name" component="input" type="text"/>
 				</div>
 				<div>
-					<label for="name">name: </label>
-						<input type="text"
-						/>
+					<label htmlFor="recipe_field">recipe: </label>
+					<Field name="recipe_field" component="textarea" type="text" placeholder="Enter URL or recipe"/>
 				</div>
 				<div>
-					<label for="recipe_field">recipe: </label>
-						<textarea>Enter URL or Recipe
-						</textarea>
-				</div>
-				<div>
-					<label for="notes">notes: </label>
-						<textarea>
-						</textarea>
+					<label htmlFor="notes">notes: </label>
+					<Field name="notes" component="textarea" type="text"/>
 				</div>
 				<div>
 					<button type="submit">Save</button>
