@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { change, registerField, Field, reduxForm } from 'redux-form';
 import CategorySelector from '../components/CategorySelector';
 		
 	let RecipeForm = props => {
