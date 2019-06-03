@@ -14,6 +14,8 @@ const mapStateToProps = (state, ownProps) =>
 		category: state.categories.byId[recipe.category_id]
 	}}
 	
+const mapDispatchToProps
+	
 class RecipeCardPresentation extends Component {
 	constructor(props) {
 	super(props)
@@ -41,7 +43,7 @@ class RecipeCardPresentation extends Component {
 
 };
 
-const RecipeCard = connect(mapStateToProps, null)(RecipeCardPresentation);
+const RecipeCard = connect(mapStateToProps, mapDispatchToProps)(RecipeCardPresentation);
 	/*null to later be replaced by mapDispatchToProps*/
 
 export default RecipeCard;

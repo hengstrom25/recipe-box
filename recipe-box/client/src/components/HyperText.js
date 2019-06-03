@@ -15,7 +15,7 @@ class HyperText extends React.Component {
 				
 				if (token.match(/^https?\:\//)) {
 					return (
-						<a href={token}target="_blank">
+						<a href={token} target="_blank">
 							{token}{maybeSpace}
 						</a>
 					)

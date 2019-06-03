@@ -1,8 +1,10 @@
 import React from 'react';
 import RecipeForm from './RecipeForm'
+import { initialize } from 'redux-form'
+import { connect } from 'react-redux'
 
 class NewRecipe extends React.Component {
- constructor(props) {
+ /*constructor(props) {
         super(props)
     }
 	submit = values => {
@@ -20,9 +22,13 @@ class NewRecipe extends React.Component {
 		})//.then
 		/*redirect*/
 		
-	}
+	handleSubmit(data) {
+		console.log('Submit', data);
+		this.props.dispatch(initialize('recipe', {}));
+	}	
+		
 	render() {
-		return <RecipeForm onSubmit={this.submit}/>
+		return <RecipeForm onSubmit={this.handleSubmit.bind(this)}/>
 	}
 }
 
