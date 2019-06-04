@@ -8,13 +8,13 @@ import HyperText from './HyperText';
 
 
 const mapStateToProps = (state, ownProps) => 
-	{const recipe=state.recipes.byId[ownProps.id]
+	{const recipe=state.recipes.byId[ownProps.id] || {name: "", recipe_field: "", notes: "", category_id: 0}
 		return {
 		recipe: recipe,
-		category: state.categories.byId[recipe.category_id]
+		category: state.categories.byId[recipe.category_id] || {name: ""}
 	}}
 	
-const mapDispatchToProps
+/*const mapDispatchToProps*/
 	
 class RecipeCardPresentation extends Component {
 	constructor(props) {
@@ -43,7 +43,7 @@ class RecipeCardPresentation extends Component {
 
 };
 
-const RecipeCard = connect(mapStateToProps, mapDispatchToProps)(RecipeCardPresentation);
+const RecipeCard = connect(mapStateToProps, null)(RecipeCardPresentation);
 	/*null to later be replaced by mapDispatchToProps*/
 
 export default RecipeCard;
