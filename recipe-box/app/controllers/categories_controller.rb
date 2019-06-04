@@ -23,7 +23,7 @@ class CategoriesController < ApplicationController
 	
 	private
 	
-	def budget_params
+	def category_params
 		params.require(:category).permit(:name)
 	end
 
