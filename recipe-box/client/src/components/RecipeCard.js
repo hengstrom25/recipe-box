@@ -32,6 +32,7 @@ class RecipeCardPresentation extends Component {
 				<p>name: {recipe.name}</p>
 				<p>recipe: <HyperText>{recipe.recipe_field}</HyperText></p>
 				<p>notes: {recipe.notes}</p>
+				<button>Delete Recipe</button>
 			</div>
 		)
 	}

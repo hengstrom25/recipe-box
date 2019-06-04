@@ -19,7 +19,7 @@ class NewRecipe extends React.Component {
 		return fetch("http://localhost:3001/recipes", {
 			method: "POST",
 			body: data,
-		}).then window.location.href = "http://localhost:3000"
+		})/*.then window.location.href = "http://localhost:3000"
 
 		
 	/*handleSubmit(data) {
