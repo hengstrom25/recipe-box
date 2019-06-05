@@ -19,10 +19,11 @@ class NewRecipe extends React.Component {
 		return fetch("http://localhost:3001/recipes", {
 			method: "POST",
 			body: data,
-		})/*.then() => {
-			const {rid} = props.match.params
-			window.location.href = "http://localhost:3000//recipe/:rid" 
-		}
+		}).then(response => response.json())
+			.then(json => {
+			console.log(json)
+			window.location.href = "http://localhost:3000/recipe/" +json.id 
+		});
 		
 	/*handleSubmit(data) {
 		console.log('Submit', data);
