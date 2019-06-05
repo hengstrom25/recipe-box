@@ -20,6 +20,23 @@ class RecipesController < ApplicationController
     	render json: recipe, status: 201
 	end
 	
+	#def edit
+		#recipe = Recipe.find(params['id'])
+		#item.update_attributes(recipe_params)
+		#respond_with recipe, json:recipe
+	#end
+	
+	def update
+		recipe = Recipe.find_by(id: params[:id])
+		item.update_attributes(recipe_params)
+		respond_with recipe, json:recipe
+	end
+	
+	def destroy
+		recipe = Recipe.find_by(id: params[:id])
+		recipe.destroy
+	end
+	
 	private
 	
 	def recipe_params
