@@ -39,9 +39,9 @@ export default (state = initialState.recipes, action) => {
 		}
 		
 		
-		case 'ADD_RECIPE': {
+		/*case 'ADD_RECIPE': {
 			return state.concat(action.recipe);
-		}	
+		}*/	
 			
 		case 'REMOVE_RECIPE':{
 			const index = state.findIndex(recipe => recipe.id === action.recipeId);

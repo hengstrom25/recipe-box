@@ -15,7 +15,7 @@ class HyperText extends React.Component {
 				
 				if (token.match(/^https?\:\//)) {
 					return (
-						<a href={token} target="_blank">
+						<a href={token} key={i} target="_blank">
 							{token}{maybeSpace}
 						</a>
 					)
@@ -28,9 +28,9 @@ class HyperText extends React.Component {
 	}
 	
 	return (
-		<div {...this.props}>
+		<span {...this.props}>
 			{contents}
-		</div>
+		</span>
 	)
 }
 	
