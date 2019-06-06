@@ -40,7 +40,7 @@ export default (state = initialState.categories, action) => {
 		
 		
 		
-		case 'ADD_CATEGORY': {
+		/*case 'ADD_CATEGORY': {
 			return state.concat(action.category);
 		}	
 			
@@ -51,7 +51,7 @@ export default (state = initialState.categories, action) => {
 		
 		case 'SET_CATEGORIES':{
 			return action.categories;
-		}
+		}*/
 		
 		default: {
 			return state;

@@ -1,36 +1,54 @@
-import React, { Component } from 'react';
-import { change, registerField, Field, reduxForm } from 'redux-form';
-import CategorySelector from '../components/CategorySelector';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+/*import { change, registerField, Field, reduxForm } from 'redux-form';*/
+/*import CategorySelector from '../components/CategorySelector';*/
 		
-	let RecipeForm = props => {
-		const { handleSubmit } = props
-		return (
-			<form onSubmit={handleSubmit}>
-				<h1>Add New Recipe</h1>
+const RecipeForm = ({ error, loading, recipe }) => {
+	const [name, setName] = useState('');
+	const [recipe_field, setRecipeField] = useState('');
+	const [notes, setNotes] = useState('');
+		
+	return (
+		<div>
+			<h2>Add New Recipe</h2>
+			<form onSubmit={e => e.preventDefault()}>
+					<div>
+					<label> 
+						name:
+						<input
+							name="name"
+							value={name}
+							onChange={e => setName(e.target.value)}
+						/>
+					</label>
+					</div>
+					<div>
+					<label> 
+						recipe:
+						<input
+							name="recipe_field"
+							value={recipe_field}
+							onChange={e => setRecipeField(e.target.value)}
+						/>
+					</label>
+					</div>
+					<div>
+					<label> 
+						name:
+						<input
+							name="notes"
+							value={notes}
+							onChange={e => setNotes(e.target.value)}
+						/>
+					</label>
+					</div>
 				<div>
-					<label htmlFor="name">name: </label>
-					<Field name="name" component="input" type="text"/>
-				</div>
-				<div>
-					<label htmlFor="recipe_field">recipe: </label>
-					<Field name="recipe_field" component="textarea" type="text" placeholder="Enter URL or recipe"/>
-				</div>
-				<div>
-					<label htmlFor="notes">notes: </label>
-					<Field name="notes" component="textarea" type="text"/>
-				</div>
-				<div>
-					<button type="submit">Save</button>
+					<button type="submit"/*onClick={() => recipe(name, recipe_field, notes)}*/>Save</button>
 				</div>
 			</form>
+		</div>
 		)
 		}
 	
-	
-	RecipeForm= reduxForm({
-		form: 'recipeform'
-	})(RecipeForm)
-	
-
 
 export default RecipeForm

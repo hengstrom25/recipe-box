@@ -1,27 +1,19 @@
-export const REQUEST_RECIPE = 'REQUEST_RECIPE'
+export const RECIPE_BEGIN = "RECIPE_BEGIN"
+export const RECIPE_SUCCESS = "RECIPE_SUCCESS"
+export const RECIPE_ERROR = "RECIPE_ERROR"
 
-export function requestRecipe() {
-	return {
-		type: REQUEST_RECIPE
-	}
-}
-
-/*will need id argument somewhere*/
-export const RECEIVE_RECIPE = 'RECEIVE_RECIPE'
-
-export function receiveRecipe(json) {
-	return {
-		type: RECEIVE_RECIPE,
-		recipe: json
-	}
-}
-
-/*will need argument of category.id in fetchRecipes*/
-export function fetchRecipe(recipe_id) {
+export const recipe => (name, recipe_field, notes) => {
 	return dispatch => {
-		dispatch(requestRecipe())
-		return fetch('http://localhost:3001/recipes/' + recipe_id)
-			.then(response => response.json())
-			.then(json => dispatch(receiveRecipe(json)))
-	}
+		dispatch({ type: RECIPE_BEGIN });
+		createRecipe(name, recipe_field, notes)
+			.then(recipe => {
+				storeAuthToken(recipe.auth_token);
+				dispatch({
+					type: RECIPE_SUCCESS,
+					payload: recipe
+				});
+			})
+					
+	};
 }
+
