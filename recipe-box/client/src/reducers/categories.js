@@ -28,13 +28,12 @@ export default (state = initialState.categories, action) => {
 		}
 		
 		case 'RECEIVE_CATEGORY': {
-		let obj = {}
-		obj[action.category.id]=action.category
+		const newById = Object.assign({}, state.byId, {[action.category.id]: action.category})
 			return Object.assign({}, state, {
 				fetching: false,
 				fetched: true,
-				allIds: [action.category.id],
-				byId: obj
+				allIds: Object.keys(newById),
+				byId: newById
 			})
 		}
 		

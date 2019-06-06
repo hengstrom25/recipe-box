@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 /*import { change, registerField, Field, reduxForm } from 'redux-form';*/
 /*import CategorySelector from '../components/CategorySelector';*/
 		
-const RecipeForm = ({ error, loading, recipe }) => {
+const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
 	const [name, setName] = useState('');
 	const [recipe_field, setRecipeField] = useState('');
 	const [notes, setNotes] = useState('');
@@ -11,7 +11,10 @@ const RecipeForm = ({ error, loading, recipe }) => {
 	return (
 		<div>
 			<h2>Add New Recipe</h2>
-			<form onSubmit={e => e.preventDefault()}>
+			<form onSubmit={e => {
+				e.preventDefault()
+				onSubmit({name, recipe_field, notes})
+				}}>
 					<div>
 					<label> 
 						name:
