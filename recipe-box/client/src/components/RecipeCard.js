@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../index.css';
 import store from '../store.js';
 import { fetchRecipe } from '../actions/recipes';
+import { deleteRecipe } from '../actions/recipe';
 import { fetchCategories } from '../actions/categories';
 import HyperText from './HyperText';
 
@@ -14,7 +15,9 @@ const mapStateToProps = (state, ownProps) =>
 		category: state.categories.byId[recipe.category_id] || {name: ""}
 	}}
 	
-/*const mapDispatchToProps*/
+const mapDispatchToProps = dispatch => ({
+	deleteRecipe: (id) => dispatch(deleteRecipe(id)),
+	})
 	
 class RecipeCardPresentation extends Component {
 	constructor(props) {
@@ -33,7 +36,7 @@ class RecipeCardPresentation extends Component {
 				<p>recipe: <HyperText>{recipe.recipe_field}</HyperText></p>
 				<p>notes: {recipe.notes}</p>
 				<button>Edit Recipe</button>
-				<button>Delete Recipe</button>
+				<button onClick={() => this.props.delete(recipe.id)}>Delete Recipe</button>
 			</div>
 		)
 	}

@@ -43,9 +43,10 @@ export default (state = initialState.recipes, action) => {
 			return state.concat(action.recipe);
 		}	
 			
-		case 'REMOVE_RECIPE':{
-			const index = state.findIndex(recipe => recipe.id === action.recipeId);
-			return [...state.slice(0, index), ...state.slice(index + 1)]
+		case 'DELETE_RECIPE':{
+			return state.filter(rec => rec.id !==action.payload)
+			/*const index = state.findIndex(recipe => recipe.id === action.recipeId);
+			return [...state.slice(0, index), ...state.slice(index + 1)]*/
 		}
 		
 		case 'SET_RECIPES': {
