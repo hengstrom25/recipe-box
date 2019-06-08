@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 	
 	root 'static_pages#home'
 	
-	resources :users
+	match '/recipes/:id', via: [:options], :controller => 'application', :action => "options", :constraints => {:method => 'OPTIONS'}
 	
 	resources :categories do
 		resources :recipes

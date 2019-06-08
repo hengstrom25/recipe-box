@@ -35,7 +35,12 @@ class RecipesController < ApplicationController
 	def destroy
 		recipe = Recipe.find_by(id: params[:id])
 		recipe.destroy
+		head :ok
 	end
+	
+	#def options
+		#render :text => ''
+	#end
 	
 	private
 	

@@ -38,7 +38,7 @@ class RecipeCardPresentation extends Component {
 				<button>Edit Recipe</button>
 				<button onClick={() => {
 					this.props.deleteRecipe(recipe.id)
-					/*window.location.href = 'http://localhost:3000/category/' + recipe.category_id*/
+					window.location.href = 'http://localhost:3000/category/' + recipe.category_id
 					}}>Delete Recipe</button>
 			</div>
 		)

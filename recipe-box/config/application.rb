@@ -12,7 +12,9 @@ module RecipeBoxApi
     #config.load_defaults 5.2
 	config.api_only = true
 	config.action_dispatch.default_headers = {
-	'Access-Control-Allow-Origin' => '*'
+	'Access-Control-Allow-Origin' => '*',
+	'Access-Control-Allow-Headers' => 'content-type',
+	'Access-Control-Allow-Methods' => 'GET, POST, HEAD, CONNECT, OPTIONS, PUT, DELETE, PATCH'
 	}
 
     # Settings in config/environments/* take precedence over those specified here.
