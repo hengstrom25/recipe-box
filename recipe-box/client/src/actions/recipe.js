@@ -21,3 +21,14 @@ export function deleteRecipe(id){
 	return { type: "DELETE_RECIPE", payload: id }
 }
 
+export function deleteRecipeDb(id) {
+	return dispatch => {
+		return fetch('http://localhost:3001/recipes/' + id, {
+			method: "DELETE"
+			}).then(() => dispatch(deleteRecipe(id))
+	)}
+}
+
+
+
+		

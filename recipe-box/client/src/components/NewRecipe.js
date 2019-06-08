@@ -1,6 +1,6 @@
 import React from 'react';
 import RecipeForm from './RecipeForm'
-import { initialize } from 'redux-form'
+/*import { initialize } from 'redux-form'*/
 import { connect } from 'react-redux'
 
 class NewRecipe extends React.Component {

@@ -44,7 +44,9 @@ export default (state = initialState.recipes, action) => {
 		}	
 			
 		case 'DELETE_RECIPE':{
-			return state.filter(rec => rec.id !==action.payload)
+			return Object.assign({}, state, {
+				allIds: state.allIds.filter(rec => rec.id !==action.payload)
+			})
 			/*const index = state.findIndex(recipe => recipe.id === action.recipeId);
 			return [...state.slice(0, index), ...state.slice(index + 1)]*/
 		}
