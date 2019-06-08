@@ -35,7 +35,9 @@ class RecipeCardPresentation extends Component {
 				<p>name: {recipe.name}</p>
 				<p>recipe: <HyperText>{recipe.recipe_field}</HyperText></p>
 				<p>notes: {recipe.notes}</p>
-				<button>Edit Recipe</button>
+				<button onClick={() => {
+					window.location.href = 'http://localhost:3000/recipe/edit/' + recipe.id
+					}}>Edit Recipe</button>
 				<button onClick={() => {
 					this.props.deleteRecipe(recipe.id)
 					window.location.href = 'http://localhost:3000/category/' + recipe.category_id

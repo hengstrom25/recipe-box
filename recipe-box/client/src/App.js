@@ -7,6 +7,7 @@ import CategoryCard from './components/CategoryCard';
 import RecipeBox from './components/RecipeBox';
 import RecipeCard from './components/RecipeCard';
 import RecipeForm from './components/RecipeForm';
+import EditRecipe from './components/EditRecipe';
 import Home from './components/Home';
 import NewRecipe from './components/NewRecipe';
 import NavBar from './components/nav/NavBar';
@@ -59,7 +60,12 @@ class App extends Component {
 						 			<RecipeCard id={rid}/>
 						 		)
 						 	}}/>
-					
+						 <Route path='/recipe/edit/:rid' render={props => {
+						 	const {rid} = props.match.params;	
+								return (
+									<EditRecipe id={rid}/>
+								)
+							}}/>
 					</Switch>
 				</div>
 			</Router>
