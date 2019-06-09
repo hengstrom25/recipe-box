@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 /*import CategorySelector from '../components/CategorySelector';*/
 		
 const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
-	const [name, setName] = useState('');
-	const [recipe_field, setRecipeField] = useState('');
-	const [notes, setNotes] = useState('');
+	const [name, setName] = useState(recipe ? recipe.name : '');
+	const [recipe_field, setRecipeField] = useState(recipe ? recipe.recipe_field : '');
+	const [notes, setNotes] = useState(recipe ? recipe.notes : '');
 		
 	return (
 		<div>
-			<h2>Add New Recipe</h2>
+			<h2>Recipe</h2>
 			<form onSubmit={e => {
 				e.preventDefault()
 				onSubmit({name, recipe_field, notes})

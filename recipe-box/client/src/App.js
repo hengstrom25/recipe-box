@@ -54,18 +54,19 @@ class App extends Component {
             						<CategoryCard id={catid}/>
           						)
         					}}/>
+        				<Route path='/recipe/edit/:rid' render={props => {
+						 	const {rid} = props.match.params;	
+								return (
+									<EditRecipe id={rid}/>
+								)
+							}}/>	
 						<Route path='/recipe/:rid' render={props => {
 						 	const {rid} = props.match.params;
 						 		return (
 						 			<RecipeCard id={rid}/>
 						 		)
 						 	}}/>
-						 <Route path='/recipe/edit/:rid' render={props => {
-						 	const {rid} = props.match.params;	
-								return (
-									<EditRecipe id={rid}/>
-								)
-							}}/>
+
 					</Switch>
 				</div>
 			</Router>

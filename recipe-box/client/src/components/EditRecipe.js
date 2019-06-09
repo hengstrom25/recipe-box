@@ -3,7 +3,14 @@ import RecipeForm from './RecipeForm'
 /*import { initialize } from 'redux-form'*/
 import { connect } from 'react-redux'
 
-class EditRecipe extends React.Component {
+const mapStateToProps = (state, ownProps) => 
+	{const recipe=state.recipes.byId[ownProps.id] || {name: "", recipe_field: "", notes: "", category_id: 0}
+		return {
+		recipe: recipe,
+		category: state.categories.byId[recipe.category_id] || {name: ""}
+	}}
+
+class EditRecipeForm extends React.Component {
  constructor(props) {
         super(props)
     }
@@ -16,7 +23,7 @@ class EditRecipe extends React.Component {
 		data.append("notes", values.notes);
         data.append("category_id", this.props.category_id);
 		
-		return fetch("http://localhost:3001/recipes", {
+		return fetch("http://localhost:3001/recipe/" + this.props.recipe.id, {
 			method: "PATCH",
 			body: data,
 		}).then(response => response.json())
@@ -31,8 +38,10 @@ class EditRecipe extends React.Component {
 	}	
 		
 	render() {
-		return <RecipeForm onSubmit={this.submit}/>
+		return <RecipeForm onSubmit={this.submit} recipe={this.props.recipe}/>
 	}
 }
+
+const EditRecipe = connect(mapStateToProps, null)(EditRecipeForm);
 
 export default EditRecipe
