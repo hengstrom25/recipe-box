@@ -6,10 +6,17 @@ import { fetchRecipes } from '../actions/recipes';
 import { fetchCategory } from '../actions/categories';
 
 const mapStateToProps = (state, ownProps) => 
-	({
-		id: ownProps.id,
-		category: state.categories.byId[ownProps.id] || {name:""},
-		recipes: state.recipes.allIds.map(id => state.recipes.byId[id])
+		({
+			id: ownProps.id,
+			category: state.categories.byId[ownProps.id] || {name:""},
+			recipes: state.recipes.allIds.map(id => state.recipes.byId[id])
+		})
+		
+const mapDispatchToProps = dispatch => ({
+	refetchCategory: (id) => {
+		dispatch(fetchRecipes(id))
+		dispatch(fetchCategory(id))	
+		}
 	})
 
 /*recipes: state.categories.byId[ownProps.id].recipes.map(id => state.recipes.byId[id])*/
@@ -49,11 +56,17 @@ class CategoryCardPresentation extends Component {
 		store.dispatch(fetchCategory(this.props.id))
 		console.log('component did mount')
 	}
+	
+	shouldComponentUpdate(nextProps) {
+		if (this.props.id != nextProps.id) {
+			this.props.refetchCategory(nextProps.id)
+		} return true
+	}
 
 
 };
 
-const CategoryCard = connect(mapStateToProps, null)(CategoryCardPresentation);
+const CategoryCard = connect(mapStateToProps, mapDispatchToProps)(CategoryCardPresentation);
 	/*null to later be replaced by mapDispatchToProps*/
 
 export default CategoryCard;
