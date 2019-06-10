@@ -20,13 +20,15 @@ class NavBarPresentation extends Component {
 		const { categories } = this.props;
 		
 		return (
+			<div className="nav nav-tab">
 			<ul>
 				{categories.map(category => (
-					<li key={category.id}>
+					<li className="nav-item" key={category.id}>
 						<Link to={`/category/${category.id}`}>{category.name}</Link>
 					</li>
 				))}
 			</ul>
+			</div>
 		)
 	}
 	
