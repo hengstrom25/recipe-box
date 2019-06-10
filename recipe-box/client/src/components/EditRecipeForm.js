@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 /*import { change, registerField, Field, reduxForm } from 'redux-form';*/
 /*import CategorySelector from '../components/CategorySelector';*/
 		
-const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
-	const [name, setName] = useState(recipe ? recipe.name : '');
+const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, setRecipeField, setRecipeNotes }) => {
+	/*const [name, setName] = useState(recipe ? recipe.name : '');
 	const [recipe_field, setRecipeField] = useState(recipe ? recipe.recipe_field : '');
-	const [notes, setNotes] = useState(recipe ? recipe.notes : '');
+	const [notes, setNotes] = useState(recipe ? recipe.notes : '');*/ 
 	
 		
 	return (
@@ -14,15 +14,15 @@ const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
 			<h2>Recipe</h2>
 			<form onSubmit={e => {
 				e.preventDefault()
-				onSubmit({name, recipe_field, notes})
+				onSubmit(id)
 				}}>
 					<div>
 					<label> 
 						name:
 						<input
 							name="name"
-							value={name}
-							onChange={e => setName(e.target.value)}
+							value={recipe.name}
+							onChange={e => setRecipeName(id, e.target.value)}
 						/>
 					</label>
 					</div>
@@ -31,8 +31,8 @@ const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
 						recipe:
 						<input
 							name="recipe_field"
-							value={recipe_field}
-							onChange={e => setRecipeField(e.target.value)}
+							value={recipe.recipe_field}
+							onChange={e => setRecipeField(id, e.target.value)}
 						/>
 					</label>
 					</div>
@@ -41,8 +41,8 @@ const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
 						notes:
 						<input
 							name="notes"
-							value={notes}
-							onChange={e => setNotes(e.target.value)}
+							value={recipe.notes}
+							onChange={e => setRecipeNotes(id, e.target.value)}
 						/>
 					</label>
 					</div>
@@ -55,4 +55,4 @@ const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
 		}
 	
 
-export default RecipeForm
+export default EditRecipeForm

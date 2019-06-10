@@ -1,9 +1,11 @@
 import React from 'react';
 import RecipeForm from './RecipeForm'
+import EditRecipeForm from './EditRecipeForm'
 /*import { initialize } from 'redux-form'*/
 import { connect } from 'react-redux'
 import store from '../store.js';
 import { fetchRecipe } from '../actions/recipes';
+import { setRecipeName, setRecipeField, setRecipeNotes } from '../actions/recipe'
 import { fetchCategories } from '../actions/categories';
 
 const mapStateToProps = (state, ownProps) => 
@@ -14,11 +16,18 @@ const mapStateToProps = (state, ownProps) =>
 		id: parseInt(ownProps.id),
 		category: state.categories.byId[recipe.category_id] || {name: ""}
 	}}
+	
+const mapDispatchToProps = dispatch => ({
+	setRecipeName: (id, name) => dispatch(setRecipeName(id, name)),
+	setRecipeField: (id, recipe_field) => dispatch(setRecipeField(id, recipe_field)),
+	setRecipeNotes: (id, notes) => dispatch(setRecipeNotes(id, notes)),
+	})	
 
-class EditRecipeForm extends React.Component {
+class EditRecipePresentation extends React.Component {
  constructor(props) {
         super(props)
     }
+        
 	submit = values => {
 		console.log(values)
 		
@@ -43,7 +52,12 @@ class EditRecipeForm extends React.Component {
 	}	
 		
 	render() {
-		return <RecipeForm onSubmit={this.submit} recipe={this.props.recipe}/>
+		return <EditRecipeForm onSubmit={this.submit} recipe={this.props.recipe} 
+		setRecipeName = {this.props.setRecipeName}
+		setRecipeField = {this.props.setRecipeField}
+		setRecipeNotes = {this.props.setRecipeNotes}
+		id = {this.props.id}
+		/>
 	}
 	
 	componentDidMount() {
@@ -52,6 +66,6 @@ class EditRecipeForm extends React.Component {
 	}	
 }
 
-const EditRecipe = connect(mapStateToProps, null)(EditRecipeForm);
+const EditRecipe = connect(mapStateToProps, mapDispatchToProps)(EditRecipePresentation);
 
 export default EditRecipe
