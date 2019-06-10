@@ -14,14 +14,14 @@ const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, s
 			<h2>Recipe</h2>
 			<form onSubmit={e => {
 				e.preventDefault()
-				onSubmit(id)
+				onSubmit(recipe)
 				}}>
 					<div>
 					<label> 
 						name:
 						<input
 							name="name"
-							value={recipe.name}
+							defaultValue={recipe.name}
 							onChange={e => setRecipeName(id, e.target.value)}
 						/>
 					</label>
@@ -31,7 +31,7 @@ const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, s
 						recipe:
 						<input
 							name="recipe_field"
-							value={recipe.recipe_field}
+							defaultValue={recipe.recipe_field}
 							onChange={e => setRecipeField(id, e.target.value)}
 						/>
 					</label>
@@ -41,7 +41,7 @@ const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, s
 						notes:
 						<input
 							name="notes"
-							value={recipe.notes}
+							defaultValue={recipe.notes}
 							onChange={e => setRecipeNotes(id, e.target.value)}
 						/>
 					</label>

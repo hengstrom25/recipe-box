@@ -3,7 +3,7 @@ import initialState from '../initialState.js'
 export default (state = initialState.recipes, action) => {
 	switch (action.type) {
 	
-		case 'REQUEST_RECIPE': {
+		/*case 'REQUEST_RECIPE': {
 			return Object.assign({}, state, {
 				fetching: true,
 			})
@@ -32,7 +32,7 @@ export default (state = initialState.recipes, action) => {
 		
 		case 'SET_RECIPES': {
 			return action.recipes;
-		}
+		}*/
 		
 		default: {
 			return state;

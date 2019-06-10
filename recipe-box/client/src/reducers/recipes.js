@@ -39,9 +39,9 @@ export default (state = initialState.recipes, action) => {
 		}
 		
 		
-		case 'ADD_RECIPE': {
+		/*case 'ADD_RECIPE': {
 			return state.concat(action.recipe);
-		}	
+		}	*/
 			
 		case 'DELETE_RECIPE':{
 			return Object.assign({}, state, {
@@ -51,9 +51,37 @@ export default (state = initialState.recipes, action) => {
 			return [...state.slice(0, index), ...state.slice(index + 1)]*/
 		}
 		
-		case 'SET_RECIPES': {
+		/*case 'SET_RECIPES': {
 			return action.recipes;
-		}
+		}*/
+		
+		case 'SET_RECIPE_NAME': {
+		console.log('SET RECIPE NAME REDUCER')
+			return Object.assign({}, state, {
+				byId: Object.assign({}, state.byId, 
+					{[action.id]: Object.assign({}, state.byId[action.id], 
+						{name: action.name}
+					)}
+				)}
+		)}
+		
+		case 'SET_RECIPE_FIELD': {
+			return Object.assign({}, state, {
+				byId: Object.assign({}, state.byId, 
+					{[action.id]: Object.assign({}, state.byid[action.id], 
+						{recipe_field: action.recipe_field}
+					)}
+				)}
+		)}
+		
+		case 'SET_RECIPE_NOTES': {
+			return Object.assign({}, state, {
+				byId: Object.assign({}, state.allIds, 
+					{[action.id]: Object.assign({}, state.byId[action.id], 
+						{notes: action.notes}
+					)}
+				)}
+		)}
 		
 		default: {
 			return state;

@@ -34,6 +34,7 @@ export const SET_RECIPE_FIELD = "SET_RECIPE_FIELD"
 export const SET_RECIPE_NOTES = "SET_RECIPE_NOTES"
 
 export function setRecipeName(id, name){
+	console.log("SET RECIPE NAME ACTION")
 	return { type: "SET_RECIPE_NAME", id: id, name: name }
 }	
 

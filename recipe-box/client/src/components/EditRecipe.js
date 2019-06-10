@@ -28,16 +28,16 @@ class EditRecipePresentation extends React.Component {
         super(props)
     }
         
-	submit = values => {
-		console.log(values)
+	submit = recipe => {
+		console.log(recipe)
 		
 		const data = new URLSearchParams();
-		data.append("name", values.name);
-		data.append("recipe_field", values.recipe_field);
-		data.append("notes", values.notes);
-        data.append("category_id", this.props.category_id);
+		data.append("name", recipe.name);
+		data.append("recipe_field", recipe.recipe_field);
+		data.append("notes", recipe.notes);
+        data.append("category_id", this.props.recipe.category_id);
 		
-		return fetch("http://localhost:3001/recipe/" + this.props.id, {
+		return fetch("http://localhost:3001/recipes/" + this.props.id, {
 			method: "PATCH",
 			body: data,
 		}).then(response => response.json())
