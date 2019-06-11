@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import '../index.css'
 /*import { change, registerField, Field, reduxForm } from 'redux-form';*/
 /*import CategorySelector from '../components/CategorySelector';*/
 		
@@ -11,12 +12,12 @@ const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
 		
 	return (
 		<div>
-			<h2>Recipe</h2>
+			<h2 className="diner_style">Recipe</h2>
 			<form onSubmit={e => {
 				e.preventDefault()
 				onSubmit({name, recipe_field, notes})
 				}}>
-					<div>
+					<div className="recipe_form">
 					<label> 
 						name:
 						<input
@@ -26,7 +27,7 @@ const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
 						/>
 					</label>
 					</div>
-					<div>
+					<div className="recipe_form">
 					<label> 
 						recipe:
 						<input
@@ -36,7 +37,7 @@ const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
 						/>
 					</label>
 					</div>
-					<div>
+					<div className="recipe_form">
 					<label> 
 						notes:
 						<input

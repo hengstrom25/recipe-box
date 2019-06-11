@@ -16,7 +16,7 @@ const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, s
 				e.preventDefault()
 				onSubmit(recipe)
 				}}>
-					<div>
+					<div className="recipe_form">
 					<label> 
 						name:
 						<input
@@ -26,7 +26,7 @@ const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, s
 						/>
 					</label>
 					</div>
-					<div>
+					<div className="recipe_form">
 					<label> 
 						recipe:
 						<input
@@ -36,7 +36,7 @@ const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, s
 						/>
 					</label>
 					</div>
-					<div>
+					<div className="recipe_form">
 					<label> 
 						notes:
 						<input

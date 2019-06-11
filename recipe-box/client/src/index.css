@@ -28,11 +28,15 @@ code {
 	font-family: 'Patrick Hand SC', cursive;
 }
 
-.welcome {
+.diner_style {
 	font-family: 'Fontdiner Swanky', cursive;
 }
 
 .description {
 	font-family: 'Patrick Hand SC', cursive;
 	font-size: 24px;
+}
+
+.recipe_form {
+	font-family: 'Patrick Hand SC', cursive;
 }
