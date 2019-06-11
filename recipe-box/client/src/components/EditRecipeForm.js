@@ -1,4 +1,5 @@
 import React from 'react';
+import '../index.css'
 /*import { connect } from 'react-redux';*/
 /*import { change, registerField, Field, reduxForm } from 'redux-form';*/
 /*import CategorySelector from '../components/CategorySelector';*/
@@ -11,7 +12,7 @@ const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, s
 		
 	return (
 		<div>
-			<h2>Recipe</h2>
+			<h2 className="diner_style">Recipe</h2>
 			<form onSubmit={e => {
 				e.preventDefault()
 				onSubmit(recipe)
