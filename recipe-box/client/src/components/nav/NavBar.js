@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Navbar, Nav, Brand, Item} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import store from '../../store.js';
 import { fetchCategories } from '../../actions/categories';
-import './navbar.css';
+/*import './navbar.css';*/
 
 const mapStateToProps = state => 
 	({
@@ -20,15 +21,16 @@ class NavBarPresentation extends Component {
 		const { categories } = this.props;
 		
 		return (
-			<div>
-			<ul>
+			<Navbar fix="top" bg="dark">
+			<Navbar.Brand>Recipe Box</Navbar.Brand>
+			<Nav.Item>
 				{categories.map(category => (
 					<li key={category.id}>
-						<Link to={`/category/${category.id}`}>{category.name}</Link>
+						<Nav.Link to={`/category/${category.id}`}>{category.name}</Nav.Link>
 					</li>
 				))}
-			</ul>
-			</div>
+			</Nav.Item>
+			</Navbar>
 		)
 	}
 	

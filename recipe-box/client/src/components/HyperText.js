@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Text } from 'react';
 
 class HyperText extends React.Component {
