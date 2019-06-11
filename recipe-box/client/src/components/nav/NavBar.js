@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import store from '../../store.js';
 import { fetchCategories } from '../../actions/categories';
-/*import './navbar.css';*/
+import './navbar.css'
 
 const mapStateToProps = state => 
 	({
@@ -21,16 +21,16 @@ class NavBarPresentation extends Component {
 		const { categories } = this.props;
 		
 		return (
-			<Navbar fix="top" bg="dark">
-			<Navbar.Brand>Recipe Box</Navbar.Brand>
-			<Nav.Item>
+			<div className="navbar">
+				<a class="home" href="http://localhost:3000/recipebox">Recipe Box</a>
+			<ul>
 				{categories.map(category => (
 					<li key={category.id}>
-						<Nav.Link to={`/category/${category.id}`}>{category.name}</Nav.Link>
+						<Link to={`/category/${category.id}`}>{category.name}</Link>
 					</li>
 				))}
-			</Nav.Item>
-			</Navbar>
+			</ul>
+			</div>
 		)
 	}
 	
