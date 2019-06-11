@@ -22,7 +22,7 @@ class NavBarPresentation extends Component {
 		
 		return (
 			<div className="navbar">
-				<a class="home" href="http://localhost:3000/recipebox">Recipe Box</a>
+				<a className="home" href="http://localhost:3000/recipebox">Recipe Box</a>
 			<ul>
 				{categories.map(category => (
 					<li key={category.id}>

@@ -23,13 +23,20 @@ class RecipeBoxPresentation extends Component {
 		const { categories } = this.props;
 		
 		return (
-			<ul>
+			/*<ul>
 				{categories.map(category => (
 					<li key={category.id}>
 						<Link to={`/category/${category.id}`}>{category.name}</Link>
 					</li>
 				))}
-			</ul>
+			</ul>*/
+			
+			<div>
+				<h1 className="welcome">What's for Dinner?</h1>
+				<p className="description">Welcome to my Recipe Box! A place to save favorite recipes from the 
+					internet and a place to write down recipes you want to remember!</p>
+				<p className="description">Select a category above to view, add, delete, and edit recipes</p>
+			</div>
 		)
 	}
 	

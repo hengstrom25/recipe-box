@@ -20,4 +20,19 @@ code {
 	border-width: 3px;
 	border-color: black;
 	border-radius: 3px;
+  	font-family: 'Patrick Hand SC', cursive;
+  	width: 500px;
+}
+
+.category_card {
+	font-family: 'Patrick Hand SC', cursive;
+}
+
+.welcome {
+	font-family: 'Fontdiner Swanky', cursive;
+}
+
+.description {
+	font-family: 'Patrick Hand SC', cursive;
+	font-size: 24px;
 }

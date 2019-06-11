@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import store from '../store.js';
+import '../index.css';
 import { fetchRecipes } from '../actions/recipes';
 import { fetchCategory } from '../actions/categories';
 
@@ -35,7 +36,7 @@ class CategoryCardPresentation extends Component {
 			const { category, recipes, id } = this.props;
 			
 			return (
-				<div>
+				<div className="category_card">
 					<p>category: {category.name}</p>
 					<ul>
 						{recipes.map(recipe => (
