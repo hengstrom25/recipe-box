@@ -6,7 +6,6 @@ export function requestRecipes() {
 	}
 }
 
-/*will need id argument somewhere*/
 export const RECEIVE_RECIPES = 'RECEIVE_RECIPES'
 
 export function receiveRecipes(json) {
@@ -16,7 +15,6 @@ export function receiveRecipes(json) {
 	}
 }
 
-/*will need argument of category.id in fetchRecipes*/
 export function fetchRecipes(category_id) {
 	return dispatch => {
 		dispatch(requestRecipes())

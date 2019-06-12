@@ -37,23 +37,15 @@ export default (state = initialState.recipes, action) => {
 				byId: obj
 			})
 		}
-		
-		
-		/*case 'ADD_RECIPE': {
-			return state.concat(action.recipe);
-		}	*/
+
 			
 		case 'DELETE_RECIPE':{
 			return Object.assign({}, state, {
 				allIds: state.allIds.filter(rec => rec.id !==action.payload)
 			})
-			/*const index = state.findIndex(recipe => recipe.id === action.recipeId);
-			return [...state.slice(0, index), ...state.slice(index + 1)]*/
 		}
 		
-		/*case 'SET_RECIPES': {
-			return action.recipes;
-		}*/
+
 		
 		case 'SET_RECIPE_NAME': {
 		console.log('SET RECIPE NAME REDUCER')

@@ -1,14 +1,7 @@
 import React from 'react';
 import '../index.css'
-/*import { connect } from 'react-redux';*/
-/*import { change, registerField, Field, reduxForm } from 'redux-form';*/
-/*import CategorySelector from '../components/CategorySelector';*/
 		
 const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, setRecipeField, setRecipeNotes }) => {
-	/*const [name, setName] = useState(recipe ? recipe.name : '');
-	const [recipe_field, setRecipeField] = useState(recipe ? recipe.recipe_field : '');
-	const [notes, setNotes] = useState(recipe ? recipe.notes : '');*/ 
-	
 		
 	return (
 		<div>
@@ -48,7 +41,7 @@ const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, s
 					</label>
 					</div>
 				<div>
-					<button type="submit"/*onClick={() => recipe(name, recipe_field, notes)}*/>Save</button>
+					<button type="submit">Save</button>
 				</div>
 			</form>
 		</div>

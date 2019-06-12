@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../index.css'
-/*import { change, registerField, Field, reduxForm } from 'redux-form';*/
-/*import CategorySelector from '../components/CategorySelector';*/
 		
 const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
 	const [name, setName] = useState(recipe ? recipe.name : '');
@@ -48,7 +46,7 @@ const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
 					</label>
 					</div>
 				<div>
-					<button type="submit"/*onClick={() => recipe(name, recipe_field, notes)}*/>Save</button>
+					<button type="submit">Save</button>
 				</div>
 			</form>
 		</div>

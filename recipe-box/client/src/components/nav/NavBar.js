@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, Brand, Item} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import store from '../../store.js';

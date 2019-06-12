@@ -13,23 +13,13 @@ const mapStateToProps = state =>
 class RecipeBoxPresentation extends Component {
 	constructor(props) {
 	super(props)
-	
-		/*this.state = {
-			categories: []
-		};*/
+
 	}
 	render() {
 	
 		const { categories } = this.props;
 		
 		return (
-			/*<ul>
-				{categories.map(category => (
-					<li key={category.id}>
-						<Link to={`/category/${category.id}`}>{category.name}</Link>
-					</li>
-				))}
-			</ul>*/
 			
 			<div>
 				<h1 className="diner_style">What's for Dinner?</h1>
@@ -48,6 +38,6 @@ class RecipeBoxPresentation extends Component {
 };
 
 const RecipeBox = connect(mapStateToProps, null)(RecipeBoxPresentation);
-	/*null to later be replaced by mapDispatchToProps*/
+
 
 export default RecipeBox

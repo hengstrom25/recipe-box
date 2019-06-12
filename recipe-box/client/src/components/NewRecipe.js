@@ -1,6 +1,5 @@
 import React from 'react';
 import RecipeForm from './RecipeForm'
-/*import { initialize } from 'redux-form'*/
 import { connect } from 'react-redux'
 
 class NewRecipe extends React.Component {
@@ -24,10 +23,6 @@ class NewRecipe extends React.Component {
 			console.log(json)
 			window.location.href = "http://localhost:3000/recipe/" +json.id 
 		});
-		
-	/*handleSubmit(data) {
-		console.log('Submit', data);
-		this.props.dispatch(initialize('recipe', {}));*/
 	}	
 		
 	render() {
