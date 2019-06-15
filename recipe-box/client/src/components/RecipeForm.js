@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+/*import NewRecipeForm from './NewRecipeForm';*/
 import '../index.css'
 		
 const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
-	const [name, setName] = useState(recipe ? recipe.name : '');
+	const [name, setRecipeName] = useState(recipe ? recipe.name : '');
 	const [recipe_field, setRecipeField] = useState(recipe ? recipe.recipe_field : '');
-	const [notes, setNotes] = useState(recipe ? recipe.notes : '');
+	const [notes, setRecipeNotes] = useState(recipe ? recipe.notes : '');
 	
 		
 	return (
@@ -21,7 +22,7 @@ const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
 						<input
 							name="name"
 							value={name}
-							onChange={e => setName(e.target.value)}
+							onChange={e => setRecipeName(e.target.value)}
 						/>
 					</label>
 					</div>
@@ -41,7 +42,7 @@ const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
 						<input
 							name="notes"
 							value={notes}
-							onChange={e => setNotes(e.target.value)}
+							onChange={e => setRecipeNotes(e.target.value)}
 						/>
 					</label>
 					</div>
