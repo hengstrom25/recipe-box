@@ -1,19 +1,21 @@
 import React, { Component } from 'react';	
+import '../index.css'
 	
-	
-class NewRecipeForm extends React.Component {
-
-	render () {
+const NewRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, setRecipeField, setRecipeNotes }) => {
 	
 	return (
 		<div>
-			<div className="recipe_form">
+			<form onSubmit={e => {
+				e.preventDefault()
+				onSubmit({name, recipe_field, notes})
+				}}>
+					<div className="recipe_form">
 					<label> 
 						name:
 						<input
 							name="name"
 							value={name}
-							onChange={e => setName(e.target.value)}
+							onChange={e => setRecipeName(e.target.value)}
 						/>
 					</label>
 					</div>
@@ -33,16 +35,17 @@ class NewRecipeForm extends React.Component {
 						<input
 							name="notes"
 							value={notes}
-							onChange={e => setNotes(e.target.value)}
+							onChange={e => setRecipeNotes(e.target.value)}
 						/>
 					</label>
 					</div>
 				<div>
 					<button type="submit">Save</button>
 				</div>
+			</form>
 			</div>
 		)
-	}
+
 }
 		
 export default NewRecipeForm
