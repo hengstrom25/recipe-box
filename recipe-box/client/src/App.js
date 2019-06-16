@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import CategoryCard from './components/CategoryCard';
+import CategoryCard from './containers/CategoryCard';
 import RecipeBox from './components/RecipeBox';
-import RecipeCard from './components/RecipeCard';
+import RecipeCard from './containers/RecipeCard';
 import RecipeForm from './components/RecipeForm';
 import EditRecipe from './components/EditRecipe';
 import Home from './components/Home';
 import NewRecipe from './components/NewRecipe';
-import NavBar from './components/nav/NavBar';
+import NavBar from './containers/NavBar';
 		
 
 class App extends Component {

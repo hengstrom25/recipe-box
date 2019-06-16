@@ -5,7 +5,7 @@ import store from '../store.js';
 import '../index.css';
 import { fetchRecipes } from '../actions/recipes';
 import { fetchCategory } from '../actions/categories';
-import CategoryCardPresentation from './CategoryCardPresentation'
+import CategoryCardPresentation from '../components/CategoryCardPresentation'
 
 const mapStateToProps = (state, ownProps) => 
 		({

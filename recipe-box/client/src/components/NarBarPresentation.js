@@ -3,12 +3,8 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import store from '../../store.js';
 import { fetchCategories } from '../../actions/categories';
-import './navbar.css'
+import './index.css'
 
-const mapStateToProps = state => 
-	({
-		categories: state.categories.allIds.map(id => state.categories.byId[id])
-	})
 
 class NavBarPresentation extends Component { 
 	constructor(props) {
@@ -39,7 +35,3 @@ class NavBarPresentation extends Component {
 	}
 
 };
-
-const NavBar = connect(mapStateToProps, null)(NavBarPresentation);
-	
-export default NavBar;				

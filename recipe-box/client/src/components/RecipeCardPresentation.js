@@ -8,17 +8,7 @@ import { fetchCategories } from '../actions/categories';
 import HyperText from './HyperText';
 
 
-const mapStateToProps = (state, ownProps) => 
-	{const recipe=state.recipes.byId[ownProps.id] || {name: "", recipe_field: "", notes: "", category_id: 0}
-		return {
-		recipe: recipe,
-		category: state.categories.byId[recipe.category_id] || {name: ""}
-	}}
-	
-const mapDispatchToProps = dispatch => ({
-	deleteRecipe: (id) => dispatch(deleteRecipeDb(id)),
-	})
-	
+
 class RecipeCardPresentation extends Component {
 	constructor(props) {
 	super(props)
@@ -53,6 +43,4 @@ class RecipeCardPresentation extends Component {
 
 };
 
-const RecipeCard = connect(mapStateToProps, mapDispatchToProps)(RecipeCardPresentation);
-
-export default RecipeCard;
+export default RecipeCardPresentation;
