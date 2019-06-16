@@ -6,11 +6,6 @@ import store from '../store.js';
 import { fetchCategories } from '../actions/categories';
 
 
-const mapStateToProps = state => 
-	({
-		categories: state.categories.allIds.map(id => state.categories.byId[id])
-	})
-
 class RecipeBoxPresentation extends Component {
 	constructor(props) {
 	super(props)
@@ -35,7 +30,4 @@ class RecipeBoxPresentation extends Component {
 
 };
 
-const RecipeBox = connect(mapStateToProps, null)(RecipeBoxPresentation);
-
-
-export default RecipeBox
+export default RecipeBoxPresentation;
