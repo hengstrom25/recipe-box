@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-/*import NewRecipeForm from './NewRecipeForm';*/
 import '../index.css'
 		
 const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
