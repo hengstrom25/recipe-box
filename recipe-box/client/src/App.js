@@ -19,7 +19,10 @@ class App extends Component {
 		<div>
 			<Router>
 				<div>
-					<NavBar />
+					<Switch>
+						<Route exact path='/'/>
+						<Route component={NavBar}/>
+					</Switch>
 					<Switch>
 						<Route exact path='/' component={Home}/>
 						<Route path='/recipebox' component={RecipeBox}/>
