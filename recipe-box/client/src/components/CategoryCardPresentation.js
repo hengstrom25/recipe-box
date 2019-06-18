@@ -41,7 +41,8 @@ class CategoryCardPresentation extends Component {
 	shouldComponentUpdate(nextProps) {
 		if (this.props.id != nextProps.id) {
 			this.props.refetchCategory(nextProps.id)
-		} return true
+		} 
+		return true
 	}
 
 

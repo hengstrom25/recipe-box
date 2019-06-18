@@ -4,13 +4,18 @@ export default (state = initialState.categories, action) => {
 	switch (action.type) {
 	
 		case 'REQUEST_CATEGORIES': {
-			return Object.assign({}, state, {
+			return {
+				...state, 
 				fetching: true,
-			})
+			}
+			/*return Object.assign({}, state, {
+				fetching: true,
+			})*/
 		}
-		
+			
 		case 'RECEIVE_CATEGORIES': {
-			return Object.assign({}, state, {
+			return {
+				...state,
 				fetching: false,
 				fetched: true,
 				allIds: action.categories.map(category => category.id),
@@ -18,7 +23,7 @@ export default (state = initialState.categories, action) => {
 					obj[cat.id] = cat;
 					return obj	
 				}, {})
-			})
+			}
 		}
 		
 		case 'REQUEST_CATEGORY': {

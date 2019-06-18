@@ -23,7 +23,6 @@ const mapDispatchToProps = dispatch => ({
 
 
 const CategoryCard = connect(mapStateToProps, mapDispatchToProps)(CategoryCardPresentation);
-	/*null to later be replaced by mapDispatchToProps*/
 
 export default CategoryCard;
 
