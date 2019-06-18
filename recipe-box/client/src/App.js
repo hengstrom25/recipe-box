@@ -6,7 +6,6 @@ import './App.css';
 import CategoryCard from './containers/CategoryCard';
 import RecipeBox from './components/RecipeBox';
 import RecipeCard from './containers/RecipeCard';
-import RecipeForm from './components/RecipeForm';
 import EditRecipe from './components/EditRecipe';
 import Home from './components/Home';
 import NewRecipe from './components/NewRecipe';

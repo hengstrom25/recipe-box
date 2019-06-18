@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../index.css'
 		
-const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
+const NewRecipeForm = ({ error, loading, recipe, onSubmit }) => {
 	const [name, setRecipeName] = useState(recipe ? recipe.name : '');
 	const [recipe_field, setRecipeField] = useState(recipe ? recipe.recipe_field : '');
 	const [notes, setRecipeNotes] = useState(recipe ? recipe.notes : '');
@@ -54,4 +54,4 @@ const RecipeForm = ({ error, loading, recipe, onSubmit }) => {
 		}
 	
 
-export default RecipeForm
+export default NewRecipeForm

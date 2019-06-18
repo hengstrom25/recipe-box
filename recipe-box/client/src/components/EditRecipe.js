@@ -1,5 +1,4 @@
 import React from 'react';
-import RecipeForm from './RecipeForm'
 import EditRecipeForm from './EditRecipeForm'
 /*import { initialize } from 'redux-form'*/
 import { connect } from 'react-redux'

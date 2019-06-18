@@ -1,5 +1,5 @@
 import React from 'react';
-import RecipeForm from './RecipeForm'
+import NewRecipeForm from './NewRecipeForm'
 import { connect } from 'react-redux'
 
 class NewRecipe extends React.Component {
@@ -26,7 +26,7 @@ class NewRecipe extends React.Component {
 	}	
 		
 	render() {
-		return <RecipeForm onSubmit={this.submit}/>
+		return <NewRecipeForm onSubmit={this.submit}/>
 	}
 }
 
