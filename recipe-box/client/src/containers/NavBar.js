@@ -9,7 +9,14 @@ const mapStateToProps = state =>
 	({
 		categories: state.categories.allIds.map(id => state.categories.byId[id])
 	})
-
-const NavBar = connect(mapStateToProps, null)(NavBarPresentation);
+	
+const mapDispatchToProps = dispatch => ({
+	fetchTheCategories: () => {
+		dispatch(fetchCategories())	
+		}
+	})
+	
+	
+const NavBar = connect(mapStateToProps, mapDispatchToProps)(NavBarPresentation);
 	
 export default NavBar;				

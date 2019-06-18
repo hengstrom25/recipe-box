@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import store from '../store.js';
-import { fetchCategories } from '../actions/categories';
 import '../index.css'
 
 
@@ -30,7 +28,7 @@ class NavBarPresentation extends Component {
 	}
 	
 	componentDidMount() {
-		store.dispatch(fetchCategories())
+		this.props.fetchTheCategories()
 		console.log('component did mount')
 	}
 
