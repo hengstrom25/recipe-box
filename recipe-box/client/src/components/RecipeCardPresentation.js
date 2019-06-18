@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import '../index.css';
-import store from '../store.js';
-import { fetchRecipe } from '../actions/recipes';
-import { deleteRecipe, deleteRecipeDb } from '../actions/recipe';
-import { fetchCategories } from '../actions/categories';
 import HyperText from './HyperText';
-
 
 
 class RecipeCardPresentation extends Component {
 	constructor(props) {
-	super(props)
+		super(props)
 	
 	}
 	
@@ -37,8 +31,8 @@ class RecipeCardPresentation extends Component {
 	}
 	
 	componentDidMount() {
-	 	store.dispatch(fetchRecipe(this.props.id)) 
-	 	store.dispatch(fetchCategories())
+	 	this.props.fetchTheRecipe(this.props.id)
+	 	this.props.fetchTheCategories()
 	}	
 
 };

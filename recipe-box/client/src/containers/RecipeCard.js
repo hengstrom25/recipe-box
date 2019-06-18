@@ -16,8 +16,16 @@ const mapStateToProps = (state, ownProps) =>
 	}}
 	
 const mapDispatchToProps = dispatch => ({
-	deleteRecipe: (id) => dispatch(deleteRecipeDb(id)),
-	})
+	fetchTheRecipe: (id) => {
+		dispatch(fetchRecipe(id))
+	},
+	fetchTheCategories: () => {
+		dispatch(fetchCategories())
+	},	
+	deleteRecipe: (id) => {
+		dispatch(deleteRecipeDb(id))
+	},
+})
 	
 const RecipeCard = connect(mapStateToProps, mapDispatchToProps)(RecipeCardPresentation);
 
