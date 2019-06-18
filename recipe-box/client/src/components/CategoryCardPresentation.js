@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Link} from 'react-router-dom';
-import store from '../store.js';
 import '../index.css'
-import { fetchRecipes } from '../actions/recipes';
-import { fetchCategory } from '../actions/categories';
 
 class CategoryCardPresentation extends Component {
 
@@ -33,14 +30,15 @@ class CategoryCardPresentation extends Component {
 		
 			
 	componentDidMount() {
-		store.dispatch(fetchRecipes(this.props.id))
-		store.dispatch(fetchCategory(this.props.id))
+		this.props.fetchTheRecipes(this.props.id)
+		this.props.fetchTheCategory(this.props.id)
 		console.log('component did mount')
 	}
 	
 	shouldComponentUpdate(nextProps) {
 		if (this.props.id != nextProps.id) {
-			this.props.refetchCategory(nextProps.id)
+			this.props.fetchTheRecipes(nextProps.id)
+			this.props.fetchTheCategory(nextProps.id)
 		} 
 		return true
 	}

@@ -15,10 +15,12 @@ const mapStateToProps = (state, ownProps) =>
 		})
 		
 const mapDispatchToProps = dispatch => ({
-	refetchCategory: (id) => {
+	fetchTheRecipes: (id) => {
 		dispatch(fetchRecipes(id))
-		dispatch(fetchCategory(id))	
-		}
+		},
+	fetchTheCategory: (id) => {
+		dispatch(fetchCategory(id))
+		},
 	})
 
 
