@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Greeting from './Greeting'
 
-const RecipeBoxPresentation = () => (
+const RecipeBox = () => (
 
 	<div>
 		<Greeting />
@@ -9,4 +9,4 @@ const RecipeBoxPresentation = () => (
 			
 );
 
-export default RecipeBoxPresentation
+export default RecipeBox

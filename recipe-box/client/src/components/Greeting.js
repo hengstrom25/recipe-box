@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../index.css';
 
-class Greeting extends React.Component {
+const Greeting = () => {
 	
-	render () {
 	const greeting = "What's for Dinner?";
-	
-	
 
 	return (
 		<div>
@@ -16,8 +13,6 @@ class Greeting extends React.Component {
 			<p className="description">Select a category above to view, add, delete, and edit recipes</p>
 		</div>
 			)
-	}
 }
-
 
 export default Greeting;
