@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import store from '../../store.js';
-import { fetchCategories } from '../../actions/categories';
-import './index.css'
+import store from '../store.js';
+import { fetchCategories } from '../actions/categories';
+import '../index.css'
 
 
 class NavBarPresentation extends Component { 
 	constructor(props) {
-	super(props)
+		super(props)
 	}
 	
 	render() {
@@ -35,3 +35,5 @@ class NavBarPresentation extends Component {
 	}
 
 };
+
+export default NavBarPresentation;
