@@ -1,27 +1,54 @@
-import React, { useState } from 'react';
+import React, { Component, useState } from 'react';
 import { connect } from 'react-redux';
+import { addRecipeDb } from '../actions/recipe';
 import '../index.css'
+
+class RecipeForm extends Component {
+	constructor(props) {
+		super(props);
 		
-const NewRecipeForm = ({ error, loading, recipe, onSubmit }) => {
+	this.state ={
+		name: '',
+		recipe_field: '',
+		notes: '',
+	};
+};
+	
+	handleNameInput = event => {
+		this.setState({ name: event.target.value });
+	};
+	
+	handleRecipeFieldInput = event => {
+		this.setState({ recipe_field: event.target.value });
+	};
+	
+	handleNotesInput = event => {
+		this.setState({ notes: event.target.value });
+	};
+	
+	handleOnSubmit(event) {
+		event.preventDefault();
+		this.props.addRecipeDb(this.state, this.props.history)
+	};
+		
+/*const NewRecipeForm = ({ error, loading, recipe, onSubmit }) => {
 	const [name, setRecipeName] = useState(recipe ? recipe.name : '');
 	const [recipe_field, setRecipeField] = useState(recipe ? recipe.recipe_field : '');
-	const [notes, setRecipeNotes] = useState(recipe ? recipe.notes : '');
+	const [notes, setRecipeNotes] = useState(recipe ? recipe.notes : '');*/
 	
-		
+	render() {	
+	
 	return (
 		<div>
 			<h2 className="diner_style">Recipe</h2>
-			<form onSubmit={e => {
-				e.preventDefault()
-				onSubmit({name, recipe_field, notes})
-				}}>
+			<form onSubmit={e => this.handleOnSubmit(e)}>
 					<div className="recipe_form">
 					<label> 
 						name:
 						<input
 							name="name"
-							value={name}
-							onChange={e => setRecipeName(e.target.value)}
+							value={this.state.name}
+							onChange={this.handleNameInput}
 						/>
 					</label>
 					</div>
@@ -30,8 +57,8 @@ const NewRecipeForm = ({ error, loading, recipe, onSubmit }) => {
 						recipe:
 						<input
 							name="recipe_field"
-							value={recipe_field}
-							onChange={e => setRecipeField(e.target.value)}
+							value={this.state.recipe_field}
+							onChange={this.handleRecipeFieldInput}
 						/>
 					</label>
 					</div>
@@ -40,8 +67,8 @@ const NewRecipeForm = ({ error, loading, recipe, onSubmit }) => {
 						notes:
 						<input
 							name="notes"
-							value={notes}
-							onChange={e => setRecipeNotes(e.target.value)}
+							value={this.state.notes}
+							onChange={this.handleNotesInput}
 						/>
 					</label>
 					</div>
@@ -51,7 +78,8 @@ const NewRecipeForm = ({ error, loading, recipe, onSubmit }) => {
 			</form>
 		</div>
 		)
-		}
+	}
+}
 	
 
-export default NewRecipeForm
+export default RecipeForm
