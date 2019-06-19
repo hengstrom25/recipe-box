@@ -1,12 +1,15 @@
 import React from 'react';
 import NewRecipeForm from './NewRecipeForm'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 
 class NewRecipe extends React.Component {
  constructor(props) {
         super(props)
+        this.addRecipeDb = this.addRecipeDb.bind(this)
     }
-	submit = values => {
+    
+	addRecipeDb(values) {
 		console.log(values)
 		
 		const data = new URLSearchParams();
@@ -21,13 +24,13 @@ class NewRecipe extends React.Component {
 		}).then(response => response.json())
 			.then(json => {
 			console.log(json)
-			window.location.href = "http://localhost:3000/recipe/" +json.id 
+			this.props.history.push("/recipe/" + json.id)
 		});
 	}	
 		
 	render() {
-		return <NewRecipeForm onSubmit={this.submit}/>
+		return <NewRecipeForm addRecipeDb={this.addRecipeDb}/>
 	}
 }
 
-export default NewRecipe
+export default withRouter(NewRecipe)

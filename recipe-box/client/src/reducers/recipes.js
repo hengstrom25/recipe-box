@@ -60,7 +60,7 @@ export default (state = initialState.recipes, action) => {
 		case 'SET_RECIPE_FIELD': {
 			return Object.assign({}, state, {
 				byId: Object.assign({}, state.byId, 
-					{[action.id]: Object.assign({}, state.byid[action.id], 
+					{[action.id]: Object.assign({}, state.byId[action.id], 
 						{recipe_field: action.recipe_field}
 					)}
 				)}

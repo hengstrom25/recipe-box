@@ -35,12 +35,11 @@ class CategoryCardPresentation extends Component {
 		console.log('component did mount')
 	}
 	
-	shouldComponentUpdate(nextProps) {
-		if (this.props.id != nextProps.id) {
-			this.props.fetchTheRecipes(nextProps.id)
-			this.props.fetchTheCategory(nextProps.id)
+	componentDidUpdate(prevProps) {
+		if (this.props.id != prevProps.id) {
+			this.props.fetchTheRecipes(this.props.id)
+			this.props.fetchTheCategory(this.props.id)
 		} 
-		return true
 	}
 
 

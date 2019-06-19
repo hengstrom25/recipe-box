@@ -28,13 +28,8 @@ class RecipeForm extends Component {
 	
 	handleOnSubmit(event) {
 		event.preventDefault();
-		this.props.addRecipeDb(this.state, this.props.history)
+		this.props.addRecipeDb(this.state)
 	};
-		
-/*const NewRecipeForm = ({ error, loading, recipe, onSubmit }) => {
-	const [name, setRecipeName] = useState(recipe ? recipe.name : '');
-	const [recipe_field, setRecipeField] = useState(recipe ? recipe.recipe_field : '');
-	const [notes, setRecipeNotes] = useState(recipe ? recipe.notes : '');*/
 	
 	render() {	
 	
