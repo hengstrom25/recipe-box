@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../index.css';
 import HyperText from './HyperText';
+import { withRouter } from "react-router";
 
 
 class RecipeCardPresentation extends Component {
@@ -20,11 +21,11 @@ class RecipeCardPresentation extends Component {
 				<p>recipe: <HyperText>{recipe.recipe_field}</HyperText></p>
 				<p>notes: {recipe.notes}</p>
 				<button onClick={() => {
-					window.location.href = 'http://localhost:3000/recipe/edit/' + recipe.id
+					this.props.history.push('/recipe/edit/' + recipe.id)
 					}}>Edit Recipe</button>
 				<button onClick={() => {
 					this.props.deleteRecipe(recipe.id)
-					window.location.href = 'http://localhost:3000/category/' + recipe.category_id
+					this.props.history.push('/category/' + recipe.category_id)
 					}}>Delete Recipe</button>
 			</div>
 		)
@@ -37,4 +38,4 @@ class RecipeCardPresentation extends Component {
 
 };
 
-export default RecipeCardPresentation;
+export default withRouter(RecipeCardPresentation);

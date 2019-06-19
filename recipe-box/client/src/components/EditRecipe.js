@@ -36,14 +36,7 @@ class EditRecipePresentation extends React.Component {
 		data.append("notes", recipe.notes);
         data.append("category_id", this.props.recipe.category_id);
 		
-		return fetch("http://localhost:3001/recipes/" + this.props.id, {
-			method: "PATCH",
-			body: data,
-		}).then(response => response.json())
-			.then(json => {
-			console.log(json)
-			window.location.href = "http://localhost:3000/recipe/" +json.id 
-		});
+
 		
 	/*handleSubmit(data) {
 		console.log('Submit', data);

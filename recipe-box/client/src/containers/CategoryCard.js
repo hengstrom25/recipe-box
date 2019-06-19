@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import store from '../store.js';
 import '../index.css';
