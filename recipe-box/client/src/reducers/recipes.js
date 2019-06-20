@@ -3,6 +3,11 @@ import initialState from '../initialState.js'
 export default (state = initialState.recipes, action) => {
 	switch (action.type) {
 	
+		case 'ADD_RECIPE':
+			return {
+				...state,
+			}
+	
 		case 'REQUEST_RECIPES': {
 			return Object.assign({}, state, {
 				fetching: true,

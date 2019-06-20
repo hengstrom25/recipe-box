@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 	
 	match '/recipes/:id', via: [:options], :controller => 'application', :action => "options", :constraints => {:method => 'OPTIONS'}
 	match '/recipe/:id', via: [:options], :controller => 'application', :action => "options", :constraints => {:method => 'OPTIONS'}
+	match '/recipes', via: [:options], :controller => 'application', :action => "options", :constraints => {:method => 'OPTIONS'}
 	
 	resources :categories do
 		resources :recipes

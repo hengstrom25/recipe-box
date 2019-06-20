@@ -1,7 +1,9 @@
-export default (state = [], action) => {
+import initialState from '../initialState.js'
+
+/*export default (state = [], action) => {
 	switch (action.type) {
 		case 'ADD_RECIPE': {
 			return state.concat(action.recipe);
 		}
 	}		
-}
+}*/

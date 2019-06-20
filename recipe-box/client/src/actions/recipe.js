@@ -1,5 +1,5 @@
-export const addRecipe = recipe => {
-	return { type: "ADD_RECIPE", recipe };
+export const addRecipe = (recipe) => {
+	return { type: "ADD_RECIPE", recipe};
 }	
 
 export function deleteRecipe(id){
@@ -18,22 +18,26 @@ export function setRecipeNotes(id, notes){
 	return { type: "SET_RECIPE_NOTES", id: id, notes: notes }
 }
 
-export const API_URL = "http://localhost:3001/";
+/*export const API_URL = "http://localhost:3001/";
 export const SET_RECIPE_NAME = "SET_RECIPE_NAME"
 export const SET_RECIPE_FIELD = "SET_RECIPE_FIELD"
-export const SET_RECIPE_NOTES = "SET_RECIPE_NOTES"
+export const SET_RECIPE_NOTES = "SET_RECIPE_NOTES"*/
 
-export const addRecipeDb = (recipe, routerHistory) => {
+export const addRecipeDb = (recipe) => {
 	return dispatch => {
 		return fetch('http://localhost:3001/recipes', {
 			method: 'POST',
-			body: JSON.stringify({ recipe }) 
+			headers: {
+			"Content-type": 'application/json'
+			},
+			body: JSON.stringify({ recipe: recipe }) 
 		})
 			.then(response => response.json())
-			.then(json => {
-			this.props.history.push('/recipe/' + json.id)
-		}
-	)}
+			.then(recipe => {
+				dispatch(addRecipe(recipe))
+			})
+			.catch(error => console.log(error))
+	}
 }
 
 export function deleteRecipeDb(id) {
@@ -44,7 +48,7 @@ export function deleteRecipeDb(id) {
 	)}
 }
 
-export function setRecipeNameDb(id, name){
+/*export function setRecipeNameDb(id, name){
 	console.log("SET RECIPE NAME ACTION")
 	return dispatch => {
 		return fetch("http://localhost:3001/recipes/" + id, {
@@ -68,7 +72,7 @@ export function setRecipeNotesDb(id, notes){
 		return fetch("http://localhost:3001/recipes/" + id, {
 			method: 'PATCH',
 			}).then(() => dispatch(setRecipeNotes(id, notes)))
-}}	
+}}	*/
 
 		
 		
