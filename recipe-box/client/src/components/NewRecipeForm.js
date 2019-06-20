@@ -1,30 +1,20 @@
 import React, { Component, useState } from 'react';
 import { connect } from 'react-redux';
 import { addRecipeDb } from '../actions/recipe';
+import { updateFormInput } from '../actions/form';
 import '../index.css'
 
 class RecipeForm extends Component {
 	constructor(props) {
 		super(props);
 		
-	this.state ={
-		name: '',
-		recipe_field: '',
-		notes: '',
-	};
 };
 	
-	handleNameInput = event => {
-		this.setState({ name: event.target.value });
+	handleChange = event => {
+		this.props.updateFormInput(event.target.name, event.target.value)
+		/*this.setState({ [event.target.name]: event.target.value });*/
 	};
 	
-	handleRecipeFieldInput = event => {
-		this.setState({ recipe_field: event.target.value });
-	};
-	
-	handleNotesInput = event => {
-		this.setState({ notes: event.target.value });
-	};
 	
 	handleOnSubmit(event) {
 		event.preventDefault();
@@ -42,8 +32,8 @@ class RecipeForm extends Component {
 						name:
 						<input
 							name="name"
-							value={this.state.name}
-							onChange={this.handleNameInput}
+							value={this.props.formData.name}
+							onChange={this.handleChange}
 						/>
 					</label>
 					</div>
@@ -52,8 +42,8 @@ class RecipeForm extends Component {
 						recipe:
 						<input
 							name="recipe_field"
-							value={this.state.recipe_field}
-							onChange={this.handleRecipeFieldInput}
+							value={this.props.formData.recipe_field}
+							onChange={this.handleChange}
 						/>
 					</label>
 					</div>
@@ -62,8 +52,8 @@ class RecipeForm extends Component {
 						notes:
 						<input
 							name="notes"
-							value={this.state.notes}
-							onChange={this.handleNotesInput}
+							value={this.props.formData.notes}
+							onChange={this.handleChange}
 						/>
 					</label>
 					</div>
@@ -75,6 +65,17 @@ class RecipeForm extends Component {
 		)
 	}
 }
-	
 
-export default RecipeForm
+const mapStateToProps = (state) => {
+	return {
+		formData: state.form
+	}
+}
+
+/*const mapDispatchToProps = (dispatch) => {
+	return {
+		updateFormInput: () => dispatch(updateFormInput())
+	}
+}*/
+
+export default connect(mapStateToProps, {updateFormInput})(RecipeForm)
