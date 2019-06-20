@@ -29,12 +29,10 @@ export const addRecipeDb = (recipe, routerHistory) => {
 			method: 'POST',
 			body: JSON.stringify({ recipe }) 
 		})
-		.then(response => response.json())
-		.then(id => {
-		if (recipe.id) {
-			dispatch(addRecipe(recipe));
-			routerHistory.push(`${recipe.id}`);
-		}}
+			.then(response => response.json())
+			.then(json => {
+			this.props.history.push('/recipe/' + json.id)
+		}
 	)}
 }
 
