@@ -8,7 +8,7 @@ import RecipeBox from './components/RecipeBox';
 import RecipeCard from './containers/RecipeCard';
 import EditRecipe from './components/EditRecipe';
 import Home from './components/Home';
-import NewRecipe from './components/NewRecipe';
+import NewRecipeForm from './components/NewRecipeForm';
 import NavBar from './containers/NavBar';
 		
 
@@ -28,7 +28,7 @@ class App extends Component {
 						<Route path='/category/:catid/newrecipe' render={props => {
 						 	const {catid} = props.match.params;
 						 		return (
-						 			<NewRecipe category_id={parseInt(catid)}/>
+						 			<NewRecipeForm category_id={parseInt(catid)}/>
 						 		)
 						 	}}/>
 						<Route path='/category/:catid' render={props => {

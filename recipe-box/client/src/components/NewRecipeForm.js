@@ -7,7 +7,7 @@ import '../index.css'
 class RecipeForm extends Component {
 	constructor(props) {
 		super(props);
-		
+		this.addRecipeDb = this.addRecipeDb.bind(this);
 };
 	
 	handleChange = event => {
