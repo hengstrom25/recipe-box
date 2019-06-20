@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addRecipeDb } from '../actions/recipe';
 import { updateFormInput } from '../actions/form';
@@ -7,7 +7,6 @@ import '../index.css'
 class RecipeForm extends Component {
 	constructor(props) {
 		super(props);
-		this.addRecipeDb = this.addRecipeDb.bind(this);
 };
 	
 	handleChange = event => {
@@ -16,8 +15,8 @@ class RecipeForm extends Component {
 	};
 	
 	
-	handleOnSubmit(event) {
-		event.preventDefault();
+	handleOnSubmit = event => {
+		event.preventDefault()
 		this.props.addRecipeDb(this.state)
 	};
 	
@@ -78,4 +77,4 @@ const mapStateToProps = (state) => {
 	}
 }*/
 
-export default connect(mapStateToProps, {updateFormInput})(RecipeForm)
+export default connect(mapStateToProps, {updateFormInput, addRecipeDb})(RecipeForm)
