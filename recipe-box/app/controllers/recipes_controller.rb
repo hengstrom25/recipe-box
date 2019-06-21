@@ -16,7 +16,8 @@ class RecipesController < ApplicationController
 	end
 	
 	def create
-    	recipe = Recipe.create(recipe_params)
+    	recipe = Recipe.new(recipe_params)
+    	recipe.save
     	render json: recipe, status: 201
 	end
 	
@@ -45,7 +46,7 @@ class RecipesController < ApplicationController
 	private
 	
 	def recipe_params
-		params.permit(:name, :recipe_field, :notes, :category_id)
+		params.require(:recipe).permit(:id, :name, :recipe_field, :notes, :category_id)
 	end	
 	
 	
