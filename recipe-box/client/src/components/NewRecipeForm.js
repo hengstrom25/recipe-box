@@ -17,7 +17,8 @@ class RecipeForm extends Component {
 	
 	handleOnSubmit = event => {
 		event.preventDefault()
-		this.props.addRecipeDb(this.state)
+		this.props.formData.category_id = this.props.category_id;
+		this.props.addRecipeDb(this.props.formData)
 	};
 	
 	render() {	
