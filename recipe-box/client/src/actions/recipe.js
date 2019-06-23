@@ -2,6 +2,10 @@ export const addRecipe = (recipe) => {
 	return { type: "ADD_RECIPE", recipe };
 }	
 
+export const updateRecipe = (recipe) => {
+	return { type: "UPDATE_RECIPE", recipe };
+}
+
 export function deleteRecipe(id){
 	return { type: "DELETE_RECIPE", payload: id }
 }
@@ -18,11 +22,6 @@ export function setRecipeNotes(id, notes){
 	return { type: "SET_RECIPE_NOTES", id: id, notes: notes }
 }
 
-/*export const API_URL = "http://localhost:3001/";
-export const SET_RECIPE_NAME = "SET_RECIPE_NAME"
-export const SET_RECIPE_FIELD = "SET_RECIPE_FIELD"
-export const SET_RECIPE_NOTES = "SET_RECIPE_NOTES"*/
-
 export const addRecipeDb = (recipe) => {
 	return dispatch => {
 		return fetch('http://localhost:3001/recipes', {
@@ -38,6 +37,23 @@ export const addRecipeDb = (recipe) => {
 			})
 			.catch(error => console.log(error))
 	}
+}
+
+export const updateRecipeDb = (recipeId, recipe) => {
+	return dispatch => {
+		return fetch('http://localhost:3000/recipes/' + recipe.id, {
+			method: 'PATCH',
+			headers: {
+			"Content-type": 'application/json'
+			},
+			body: JSON.stringify({ recipe: recipe }) 
+		})
+			.then(response => response.json())
+			.then(recipe => {
+				dispatch(updateRecipe(recipe))
+			})
+			.catch(error => console.log(error))
+	};
 }
 
 export function deleteRecipeDb(id) {

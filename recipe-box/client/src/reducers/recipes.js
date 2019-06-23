@@ -7,6 +7,12 @@ export default (state = initialState.recipes, action) => {
 			return {
 				...state,
 			}
+			
+		case 'UPDATE_RECIPE': 
+		{
+			const i = state.findIndex(recipe => recipe.id === action.recipe.id);
+			return [...state.slice(0, i), action.recipe, ...state.slice(i + 1)]
+		}
 	
 		case 'REQUEST_RECIPES': {
 			return Object.assign({}, state, {

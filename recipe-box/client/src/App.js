@@ -6,7 +6,7 @@ import './App.css';
 import CategoryCard from './containers/CategoryCard';
 import RecipeBox from './components/RecipeBox';
 import RecipeCard from './containers/RecipeCard';
-import EditRecipe from './components/EditRecipe';
+import EditRecipeForm from './components/NewNewEditRecipeForm';
 import Home from './components/Home';
 import NewRecipeForm from './components/NewRecipeForm';
 import NavBar from './containers/NavBar';
@@ -40,7 +40,7 @@ class App extends Component {
         				<Route path='/recipe/edit/:rid' render={props => {
 						 	const {rid} = props.match.params;	
 								return (
-									<EditRecipe id={parseInt(rid)}/>
+									<EditRecipeForm id={parseInt(rid)}/>
 								)
 							}}/>	
 						<Route path='/recipe/:rid' render={props => {

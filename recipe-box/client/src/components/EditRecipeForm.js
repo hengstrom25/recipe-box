@@ -1,5 +1,6 @@
 import React from 'react';
 import '../index.css'
+import { updateFormInput } from '../actions/form';
 		
 const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, setRecipeField, setRecipeNotes }) => {
 		
