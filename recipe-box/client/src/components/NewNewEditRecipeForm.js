@@ -25,9 +25,9 @@ class EditRecipeForm extends Component {
 	
 	handleOnSubmit = event => {
 		event.preventDefault()
-		this.props.formData.category_id = this.props.category_id;
+		/*this.props.formData.category_id = this.props.category_id;*/
 		this.props.updateRecipeDb(this.props.formData)
-		this.props.history.push("/recipe/" +this.id)
+		/*this.props.history.push("/recipe/" +this.id)*/
 	};
 	
 	render() {	
@@ -41,7 +41,7 @@ class EditRecipeForm extends Component {
 						name:
 						<input
 							name="name"
-							value={this.props.recipe.name}
+							defaultValue={this.props.recipe.name}
 							onChange={this.handleChange}
 						/>
 					</label>
@@ -51,7 +51,7 @@ class EditRecipeForm extends Component {
 						recipe:
 						<input
 							name="recipe_field"
-							value={this.props.recipe.recipe_field}
+							defaultValue={this.props.recipe.recipe_field}
 							onChange={this.handleChange}
 						/>
 					</label>
@@ -61,7 +61,7 @@ class EditRecipeForm extends Component {
 						notes:
 						<input
 							name="notes"
-							value={this.props.recipe.notes}
+							defaultValue={this.props.recipe.notes}
 							onChange={this.handleChange}
 						/>
 					</label>
