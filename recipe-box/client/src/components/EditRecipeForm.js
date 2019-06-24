@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { updateRecipeDb } from '../actions/recipe';
 import { updateFormInput } from '../actions/form';
@@ -26,7 +27,7 @@ class EditRecipeForm extends Component {
 			recipe_field: this.props.recipe_field, 
 			notes: this.props.notes,
 			category_id: this.props.category_id})
-		/*this.props.history.push("/recipe/" +this.id)*/
+		this.props.history.push("/recipe/" +this.props.id)
 	};
 	
 	render() {	
@@ -99,4 +100,4 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-export default connect(mapStateToProps, {updateFormInput, updateRecipeDb})(EditRecipeForm)
+export default connect(mapStateToProps, {updateFormInput, updateRecipeDb})(withRouter(EditRecipeForm))

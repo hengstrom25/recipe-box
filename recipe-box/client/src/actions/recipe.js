@@ -41,6 +41,7 @@ export const addRecipeDb = (recipe) => {
 
 export const updateRecipeDb = (id, recipe) => {
 	return dispatch => {
+		dispatch(updateRecipe(recipe))
 		return fetch('http://localhost:3001/recipes/' + id, {
 			method: 'PATCH',
 			headers: {

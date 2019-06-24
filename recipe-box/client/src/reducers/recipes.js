@@ -10,10 +10,14 @@ export default (state = initialState.recipes, action) => {
 			
 		case 'UPDATE_RECIPE': 
 		{
-			return [
-				...state.filter(recipe => recipe.id !== action.recipe.id), 
-				Object.assign({}, action.recipe)
-				]
+			const id = action.recipe.id
+			const oldRecipe = state.byId[id] ||  {}
+			const newRecipe = action.recipe
+			return Object.assign({}, state, {
+				byId: Object.assign({}, state.byId, {
+					[id]: Object.assign({}, oldRecipe, newRecipe)
+				})
+			})
 		}
 	
 		case 'REQUEST_RECIPES': {
