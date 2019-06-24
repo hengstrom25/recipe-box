@@ -19,7 +19,7 @@ class RecipeForm extends Component {
 		event.preventDefault()
 		this.props.formData.category_id = this.props.category_id;
 		this.props.addRecipeDb(this.props.formData)
-		this.props.history.push("/recipe/" +this.props.id)
+		/*this.props.history.push("/recipe/" +this.props.id)*/
 	};
 	
 	render() {	
