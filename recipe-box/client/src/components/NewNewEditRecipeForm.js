@@ -10,11 +10,8 @@ import { fetchCategories } from '../actions/categories';
 class EditRecipeForm extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			name: props.name,
-			recipe_field: props.recipe_field,
-			notes: props.notes,
-		}
+		this.handleChange = this.handleChange.bind(this)
+		this.handleOnSubmit = this.handleOnSubmit.bind(this)
 };
 	
 	handleChange = event => {
@@ -26,7 +23,11 @@ class EditRecipeForm extends Component {
 	handleOnSubmit = event => {
 		event.preventDefault()
 		/*this.props.formData.category_id = this.props.category_id;*/
-		this.props.updateRecipeDb(this.props.formData)
+		this.props.updateRecipeDb(this.props.id,  
+			{name: this.props.name, 
+			recipe_field: this.props.recipe_field, 
+			notes: this.props.notes,
+			category_id: this.props.category_id})
 		/*this.props.history.push("/recipe/" +this.id)*/
 	};
 	
@@ -40,8 +41,9 @@ class EditRecipeForm extends Component {
 					<label> 
 						name:
 						<input
+							type="text"
 							name="name"
-							value={this.props.recipe.name}
+							value={this.props.name}
 							onChange={this.handleChange}
 						/>
 					</label>
@@ -50,8 +52,9 @@ class EditRecipeForm extends Component {
 					<label> 
 						recipe:
 						<input
+							type="text"
 							name="recipe_field"
-							value={this.props.recipe.recipe_field}
+							value={this.props.recipe_field}
 							onChange={this.handleChange}
 						/>
 					</label>
@@ -60,8 +63,9 @@ class EditRecipeForm extends Component {
 					<label> 
 						notes:
 						<input
+							type="text"
 							name="notes"
-							value={this.props.recipe.notes}
+							value={this.props.notes}
 							onChange={this.handleChange}
 						/>
 					</label>
@@ -81,21 +85,20 @@ class EditRecipeForm extends Component {
 }
 
 
-const mapStateToProps = (state, ownProps) =>
-    {const recipe=state.recipes.byId[parseInt(ownProps.id)] || 
-    	{name: "", recipe_field: "", notes: "", category_id: 0, id:parseInt(ownProps.id)}
-    console.log(state, ownProps)
-        return {
-        recipe: recipe,
-        id: parseInt(ownProps.id),
-        category: state.categories.byId[recipe.category_id] || {name: ""}
+const mapStateToProps = (state, ownProps) => {
+	return {
+		name: state.form.name, 
+		recipe_field: state.form.recipe_field, 
+		notes: state.form.notes,
+		id: ownProps.id,
+		category_id: state.form.category_id
     }}
 
 
-/*const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
 		updateFormInput: () => dispatch(updateFormInput())
 	}
-}*/
+}
 
 export default connect(mapStateToProps, {updateFormInput, updateRecipeDb})(EditRecipeForm)

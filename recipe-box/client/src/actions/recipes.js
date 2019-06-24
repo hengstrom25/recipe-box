@@ -1,3 +1,5 @@
+import { loadForm } from './form'
+
 export const REQUEST_RECIPES = 'REQUEST_RECIPES'
 
 export function requestRecipes() {
@@ -46,6 +48,9 @@ export function fetchRecipe(recipe_id) {
 		dispatch(requestRecipe())
 		return fetch('http://localhost:3001/recipes/' + recipe_id)
 			.then(response => response.json())
-			.then(json => dispatch(receiveRecipe(json)))
+			.then(json => {
+			dispatch(receiveRecipe(json))
+			dispatch(loadForm(json))
+		})
 	}
 }

@@ -28,7 +28,7 @@ class RecipesController < ApplicationController
 	end
 	
 	def update
-		recipe = Recipe.find(id: params[:id])
+		recipe = Recipe.find_by(id: params[:id])
 		recipe.update_attributes(edit_recipe_params)
 		render json:recipe, status: :ok
 	end
