@@ -11,13 +11,21 @@ export default (state = initialState, action) => {
 			...state,
 			[action.payload.name]: action.payload.value 
 		}
-	default: return state
-	
+		
+		
 	case "LOAD_FORM":
         return {
             ...state,
             ...action.values
         }
+        
+    case "RESET_FORM":
+    	return initialState
+    	
+    	 
+	default: return state
+	
+
 
 	}
 }

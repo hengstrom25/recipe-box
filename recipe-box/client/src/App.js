@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, withRouter} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import CategoryCard from './containers/CategoryCard';
@@ -16,7 +16,6 @@ class App extends Component {
 	render() {
 		return (
 		<div>
-			<Router>
 				<div>
 					<Switch>
 						<Route exact path='/'/>
@@ -26,9 +25,9 @@ class App extends Component {
 						<Route exact path='/' component={Home}/>
 						<Route path='/recipebox' component={RecipeBox}/>
 						<Route path='/category/:catid/newrecipe' render={props => {
-						 	const {catid} = props.match.params;
+
 						 		return (
-						 			<NewRecipeForm category_id={parseInt(catid)}/>
+						 			<NewRecipeForm {...props}/>
 						 		)
 						 	}}/>
 						<Route path='/category/:catid' render={props => {
@@ -43,7 +42,7 @@ class App extends Component {
 									<EditRecipeForm id={parseInt(rid)}/>
 								)
 							}}/>	
-						<Route path='/recipe/:rid' render={props => {
+						<Route path='/recipes/:rid' render={props => {
 						 	const {rid} = props.match.params;
 						 		return (
 						 			<RecipeCard id={parseInt(rid)}/>
@@ -52,7 +51,6 @@ class App extends Component {
 
 					</Switch>
 				</div>
-			</Router>
 		</div>
 		)
 	}
@@ -61,6 +59,6 @@ class App extends Component {
 
 
 
-export default App;
+export default withRouter(App);
 
 

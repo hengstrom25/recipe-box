@@ -17,7 +17,10 @@ class RecipesController < ApplicationController
 	
 	def create
     	recipe = Recipe.new(recipe_params)
-    	recipe.save
+    	if params[:category_id]
+    		recipe.category_id = params[:category_id]
+    	end
+    		recipe.save
     	render json: recipe, status: 201
 	end
 	

@@ -22,10 +22,9 @@ export function setRecipeNotes(id, notes){
 	return { type: "SET_RECIPE_NOTES", id: id, notes: notes }
 }
 
-export const addRecipeDb = (recipe) => {
+export const addRecipeDb = (recipe, catid, history) => {
 	return dispatch => {
-		dispatch(addRecipe(recipe))
-		return fetch('http://localhost:3001/recipes', {
+		return fetch(`http://localhost:3001/categories/${catid}/recipes`, {
 			method: 'POST',
 			headers: {
 			"Content-type": 'application/json'
@@ -35,6 +34,7 @@ export const addRecipeDb = (recipe) => {
 			.then(response => response.json())
 			.then(recipe => {
 				dispatch(addRecipe(recipe))
+				history.push(`/recipes/${recipe.id}`)
 			})
 			.catch(error => console.log(error))
 	}
