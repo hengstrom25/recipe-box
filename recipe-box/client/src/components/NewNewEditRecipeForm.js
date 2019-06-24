@@ -13,7 +13,7 @@ class EditRecipeForm extends Component {
 		this.state = {
 			name: props.name,
 			recipe_field: props.recipe_field,
-			notes: props.notes
+			notes: props.notes,
 		}
 };
 	
@@ -34,14 +34,14 @@ class EditRecipeForm extends Component {
 	
 	return (
 		<div>
-			<h2 className="diner_style">Recipe</h2>
+			<h2 className="diner_style">Edit Recipe</h2>
 			<form onSubmit={e => this.handleOnSubmit(e)}>
 					<div className="recipe_form">
 					<label> 
 						name:
 						<input
 							name="name"
-							defaultValue={this.props.recipe.name}
+							value={this.props.recipe.name}
 							onChange={this.handleChange}
 						/>
 					</label>
@@ -51,7 +51,7 @@ class EditRecipeForm extends Component {
 						recipe:
 						<input
 							name="recipe_field"
-							defaultValue={this.props.recipe.recipe_field}
+							value={this.props.recipe.recipe_field}
 							onChange={this.handleChange}
 						/>
 					</label>
@@ -61,7 +61,7 @@ class EditRecipeForm extends Component {
 						notes:
 						<input
 							name="notes"
-							defaultValue={this.props.recipe.notes}
+							value={this.props.recipe.notes}
 							onChange={this.handleChange}
 						/>
 					</label>
@@ -79,8 +79,6 @@ class EditRecipeForm extends Component {
          store.dispatch(fetchCategories())
     }
 }
-
-
 
 
 const mapStateToProps = (state, ownProps) =>
