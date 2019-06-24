@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
 	
 	def update
 		recipe = Recipe.find_by(id: params[:id])
-		recipe.update_attributes(edit_recipe_params)
+		recipe.update_attributes(recipe_params)
 		render json:recipe, status: :ok
 	end
 	
@@ -48,10 +48,7 @@ class RecipesController < ApplicationController
 	def recipe_params
 		params.require(:recipe).permit(:id, :name, :recipe_field, :notes, :category_id)
 	end	
-	
-	def edit_recipe_params
-		params.permit(:id, :name, :recipe_field, :notes, :category_id)
-	end
+
 	
 	
 

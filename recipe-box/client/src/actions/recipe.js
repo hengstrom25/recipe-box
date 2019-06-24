@@ -64,31 +64,6 @@ export function deleteRecipeDb(id) {
 	)}
 }
 
-/*export function setRecipeNameDb(id, name){
-	console.log("SET RECIPE NAME ACTION")
-	return dispatch => {
-		return fetch("http://localhost:3001/recipes/" + id, {
-			method: 'PATCH',
-			}).then(() => dispatch(setRecipeName(id, name)))
-}}	
-	
-
-export function setRecipeFieldDb(id, recipe_field){
-	console.log("SET RECIPE FIELD ACTION")
-	return dispatch => {
-		return fetch("http://localhost:3001/recipes/" + id, {
-			method: 'PATCH',
-			}).then(() => dispatch(setRecipeField(id, recipe_field)))
-}}			
-
-
-export function setRecipeNotesDb(id, notes){
-	console.log("SET RECIPE NOTES ACTION")
-	return dispatch => {
-		return fetch("http://localhost:3001/recipes/" + id, {
-			method: 'PATCH',
-			}).then(() => dispatch(setRecipeNotes(id, notes)))
-}}	*/
 
 		
 		

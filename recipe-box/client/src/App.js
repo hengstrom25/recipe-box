@@ -6,7 +6,7 @@ import './App.css';
 import CategoryCard from './containers/CategoryCard';
 import RecipeBox from './components/RecipeBox';
 import RecipeCard from './containers/RecipeCard';
-import EditRecipeForm from './components/NewNewEditRecipeForm';
+import EditRecipeForm from './components/EditRecipeForm';
 import Home from './components/Home';
 import NewRecipeForm from './components/NewRecipeForm';
 import NavBar from './containers/NavBar';

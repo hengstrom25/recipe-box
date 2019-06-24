@@ -10,8 +10,10 @@ export default (state = initialState.recipes, action) => {
 			
 		case 'UPDATE_RECIPE': 
 		{
-			const i = state.findIndex(recipe => recipe.id === action.recipe.id);
-			return [...state.slice(0, i), action.recipe, ...state.slice(i + 1)]
+			return [
+				...state.filter(recipe => recipe.id !== action.recipe.id), 
+				Object.assign({}, action.recipe)
+				]
 		}
 	
 		case 'REQUEST_RECIPES': {

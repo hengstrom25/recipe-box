@@ -1,23 +1,48 @@
-import React from 'react';
-import '../index.css'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { updateRecipeDb } from '../actions/recipe';
 import { updateFormInput } from '../actions/form';
-		
-const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, setRecipeField, setRecipeNotes }) => {
-		
+import store from '../store.js';
+import '../index.css'
+import { fetchRecipe } from '../actions/recipes';
+import { fetchCategories } from '../actions/categories';
+
+class EditRecipeForm extends Component {
+	constructor(props) {
+		super(props);
+		this.handleChange = this.handleChange.bind(this)
+		this.handleOnSubmit = this.handleOnSubmit.bind(this)
+};
+	
+	handleChange = event => {
+		this.props.updateFormInput(event.target.name, event.target.value)
+	};
+	
+	
+	handleOnSubmit = event => {
+		event.preventDefault()
+		this.props.updateRecipeDb(this.props.id,  
+			{name: this.props.name, 
+			recipe_field: this.props.recipe_field, 
+			notes: this.props.notes,
+			category_id: this.props.category_id})
+		/*this.props.history.push("/recipe/" +this.id)*/
+	};
+	
+	render() {	
+	
 	return (
 		<div>
-			<h2 className="diner_style">Recipe</h2>
-			<form onSubmit={e => {
-				e.preventDefault()
-				onSubmit(recipe)
-				}}>
+			<h2 className="diner_style">Edit Recipe</h2>
+			<form onSubmit={e => this.handleOnSubmit(e)}>
 					<div className="recipe_form">
 					<label> 
 						name:
 						<input
+							type="text"
 							name="name"
-							defaultValue={recipe.name}
-							onChange={e => setRecipeName(id, e.target.value)}
+							value={this.props.name}
+							onChange={this.handleChange}
 						/>
 					</label>
 					</div>
@@ -25,9 +50,10 @@ const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, s
 					<label> 
 						recipe:
 						<input
+							type="text"
 							name="recipe_field"
-							defaultValue={recipe.recipe_field}
-							onChange={e => setRecipeField(id, e.target.value)}
+							value={this.props.recipe_field}
+							onChange={this.handleChange}
 						/>
 					</label>
 					</div>
@@ -35,9 +61,10 @@ const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, s
 					<label> 
 						notes:
 						<input
+							type="text"
 							name="notes"
-							defaultValue={recipe.notes}
-							onChange={e => setRecipeNotes(id, e.target.value)}
+							value={this.props.notes}
+							onChange={this.handleChange}
 						/>
 					</label>
 					</div>
@@ -47,7 +74,29 @@ const EditRecipeForm = ({ error, loading, recipe, onSubmit, id, setRecipeName, s
 			</form>
 		</div>
 		)
-		}
+	}
 	
+    componentDidMount() {
+         store.dispatch(fetchRecipe(this.props.id))
+         store.dispatch(fetchCategories())
+    }
+}
 
-export default EditRecipeForm
+
+const mapStateToProps = (state, ownProps) => {
+	return {
+		name: state.form.name, 
+		recipe_field: state.form.recipe_field, 
+		notes: state.form.notes,
+		id: ownProps.id,
+		category_id: state.form.category_id
+    }}
+
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		updateFormInput: () => dispatch(updateFormInput())
+	}
+}
+
+export default connect(mapStateToProps, {updateFormInput, updateRecipeDb})(EditRecipeForm)
