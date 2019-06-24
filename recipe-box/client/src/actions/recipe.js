@@ -24,6 +24,7 @@ export function setRecipeNotes(id, notes){
 
 export const addRecipeDb = (recipe) => {
 	return dispatch => {
+		dispatch(addRecipe(recipe))
 		return fetch('http://localhost:3001/recipes', {
 			method: 'POST',
 			headers: {

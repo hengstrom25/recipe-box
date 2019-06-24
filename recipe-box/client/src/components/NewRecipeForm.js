@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { addRecipeDb } from '../actions/recipe';
 import { updateFormInput } from '../actions/form';
@@ -11,7 +12,6 @@ class RecipeForm extends Component {
 	
 	handleChange = event => {
 		this.props.updateFormInput(event.target.name, event.target.value)
-		/*this.setState({ [event.target.name]: event.target.value });*/
 	};
 	
 	
@@ -19,6 +19,7 @@ class RecipeForm extends Component {
 		event.preventDefault()
 		this.props.formData.category_id = this.props.category_id;
 		this.props.addRecipeDb(this.props.formData)
+		this.props.history.push("/recipe/" +this.props.id)
 	};
 	
 	render() {	
@@ -78,4 +79,4 @@ const mapStateToProps = (state) => {
 	}
 }*/
 
-export default connect(mapStateToProps, {updateFormInput, addRecipeDb})(RecipeForm)
+export default connect(mapStateToProps, {updateFormInput, addRecipeDb})(withRouter(RecipeForm))
