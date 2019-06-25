@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addRecipeDb } from '../actions/recipe';
-import { updateFormInput } from '../actions/form';
+import { updateFormInput, resetForm } from '../actions/form';
 import '../index.css'
 
 class RecipeForm extends Component {
@@ -19,7 +19,6 @@ class RecipeForm extends Component {
 		const {catid} = this.props.match.params;
 		const {history} = this.props
 		this.props.addRecipeDb(this.props.formData, catid, history)
-		/*this.props.history.push("/recipe/" +this.props.id)*/
 	};
 	
 	render() {	

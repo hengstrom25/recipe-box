@@ -12,7 +12,7 @@ export function loadForm(values) {
     }
 }
 
-export function resetForm() {
+export const resetForm = () => {
 	return {
 		type: "RESET_FORM"
 	}

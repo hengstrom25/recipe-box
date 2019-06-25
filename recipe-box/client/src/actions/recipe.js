@@ -12,18 +12,6 @@ export function deleteRecipe(id){
 	return { type: "DELETE_RECIPE", payload: id }
 }
 
-export function setRecipeName(id, name){
-	return { type: "SET_RECIPE_NAME", id: id, name: name }
-}
-
-export function setRecipeField(id, recipe_field){
-	return { type: "SET_RECIPE_FIELD", id: id, recipe_field: recipe_field }
-}	
-
-export function setRecipeNotes(id, notes){
-	return { type: "SET_RECIPE_NOTES", id: id, notes: notes }
-}
-
 export const addRecipeDb = (recipe, catid, history) => {
 	return dispatch => {
 		return fetch(`http://localhost:3001/categories/${catid}/recipes`, {
@@ -36,8 +24,9 @@ export const addRecipeDb = (recipe, catid, history) => {
 			.then(response => response.json())
 			.then(recipe => {
 				dispatch(addRecipe(recipe))
-				dispatch(resetForm())	
 				history.push(`/recipes/${recipe.id}`)
+				dispatch(resetForm())
+				console.log("form reset")	
 			})
 			.catch(error => console.log(error))
 	}
