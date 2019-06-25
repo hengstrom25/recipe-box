@@ -64,7 +64,13 @@ class RecipeForm extends Component {
 		</div>
 		)
 	}
+	
+	componentDidMount() {
+		this.props.resetForm()
+	}
 }
+
+
 
 const mapStateToProps = (state) => {
 	return {
@@ -78,4 +84,4 @@ const mapStateToProps = (state) => {
 	}
 }*/
 
-export default connect(mapStateToProps, {updateFormInput, addRecipeDb})(RecipeForm)
+export default connect(mapStateToProps, {updateFormInput, addRecipeDb, resetForm})(RecipeForm)
