@@ -18,7 +18,7 @@ class CategoryCardPresentation extends Component {
 					<ul className="category_card">
 						{recipes.map(recipe => (
 							<li key={recipe.id}>
-								<Link to={`/recipe/${recipe.id}`}>{recipe.name}</Link>
+								<Link to={`/recipes/${recipe.id}`}>{recipe.name}</Link>
 							</li>
 						))}
 					</ul>

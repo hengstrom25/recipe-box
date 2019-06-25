@@ -20,7 +20,7 @@ export default (state = initialState, action) => {
         }
         
     case "RESET_FORM":
-    	return initialState
+    	return initialState;
     	
     	 
 	default: return state

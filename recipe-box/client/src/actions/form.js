@@ -12,6 +12,8 @@ export function loadForm(values) {
     }
 }
 
-/*export function resetForm...
-type: RESET_FORM*/
-
+export function resetForm() {
+	return {
+		type: "RESET_FORM"
+	}
+}

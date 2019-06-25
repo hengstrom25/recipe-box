@@ -1,3 +1,5 @@
+import { resetForm } from './form'
+
 export const addRecipe = (recipe) => {
 	return { type: "ADD_RECIPE", recipe };
 }	
@@ -34,6 +36,7 @@ export const addRecipeDb = (recipe, catid, history) => {
 			.then(response => response.json())
 			.then(recipe => {
 				dispatch(addRecipe(recipe))
+				dispatch(resetForm())	
 				history.push(`/recipes/${recipe.id}`)
 			})
 			.catch(error => console.log(error))

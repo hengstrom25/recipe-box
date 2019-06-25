@@ -4,17 +4,6 @@ export default (state = initialState.recipes, action) => {
 	switch (action.type) {
 	
 		case 'ADD_RECIPE':
-		/*{
-			const id = action.recipe.id
-			const newRecipe = action.recipe
-			return Object.assign({}, state, {
-				byId: Object.assign({}, state.byId, {
-					[id]: Object.assign({}, newRecipe)
-				})
-			})
-		}*/
-				
-			
 			return {
 				...state,
 			}

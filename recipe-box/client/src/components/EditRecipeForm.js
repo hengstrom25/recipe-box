@@ -27,7 +27,7 @@ class EditRecipeForm extends Component {
 			recipe_field: this.props.recipe_field, 
 			notes: this.props.notes,
 			category_id: this.props.category_id})
-		this.props.history.push("/recipe/" +this.props.id)
+		this.props.history.push("/recipes/" +this.props.id)
 	};
 	
 	render() {	
