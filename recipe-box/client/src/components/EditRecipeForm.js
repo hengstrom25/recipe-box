@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { updateRecipeDb } from '../actions/recipe';
 import { updateFormInput } from '../actions/form';
@@ -22,12 +21,13 @@ class EditRecipeForm extends Component {
 	
 	handleOnSubmit = event => {
 		event.preventDefault()
+		const {history} = this.props
 		this.props.updateRecipeDb(this.props.id,  
 			{name: this.props.name, 
 			recipe_field: this.props.recipe_field, 
 			notes: this.props.notes,
-			category_id: this.props.category_id})
-		this.props.history.push("/recipes/" +this.props.id)
+			category_id: this.props.category_id},
+			history)
 	};
 	
 	render() {	
@@ -100,4 +100,4 @@ const mapDispatchToProps = (dispatch) => {
 	}
 }
 
-export default connect(mapStateToProps, {updateFormInput, updateRecipeDb})(withRouter(EditRecipeForm))
+export default connect(mapStateToProps, {updateFormInput, updateRecipeDb})(EditRecipeForm)

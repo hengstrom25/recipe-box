@@ -28,7 +28,7 @@ export const addRecipeDb = (recipe, catid, history) => {
 	}
 }
 
-export const updateRecipeDb = (id, recipe) => {
+export const updateRecipeDb = (id, recipe, history) => {
 	return dispatch => {
 		dispatch(updateRecipe(recipe))
 		return fetch('http://localhost:3001/recipes/' + id, {
@@ -41,6 +41,7 @@ export const updateRecipeDb = (id, recipe) => {
 			.then(response => response.json())
 			.then(recipe => {
 				dispatch(updateRecipe(recipe))
+				history.push(`/recipes/${recipe.id}`)
 			})
 			.catch(error => console.log(error))
 	};
