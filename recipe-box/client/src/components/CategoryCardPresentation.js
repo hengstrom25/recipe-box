@@ -42,7 +42,6 @@ class CategoryCardPresentation extends Component {
 		} 
 	}
 
-
 };
 
 

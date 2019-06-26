@@ -58,7 +58,7 @@ export default (state = initialState.recipes, action) => {
 			
 		case 'DELETE_RECIPE':{
 			return Object.assign({}, state, {
-				allIds: state.allIds.filter(rec => rec.id !==action.payload)
+				allIds: state.allIds.filter(id => id !==action.payload)
 			})
 		}
 		

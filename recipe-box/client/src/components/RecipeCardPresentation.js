@@ -21,11 +21,11 @@ class RecipeCardPresentation extends Component {
 				<p>recipe: <HyperText>{recipe.recipe_field}</HyperText></p>
 				<p>notes: {recipe.notes}</p>
 				<button onClick={() => {
-					this.props.history.push('/recipe/edit/' + recipe.id)
+					history.push('/recipe/edit/' + recipe.id)
 					}}>Edit Recipe</button>
 				<button onClick={() => {
 					this.props.deleteRecipe(recipe.id)
-					this.props.history.push('/category/' + recipe.category_id)
+					history.push('/category/' + recipe.category_id)
 					}}>Delete Recipe</button>
 			</div>
 		)

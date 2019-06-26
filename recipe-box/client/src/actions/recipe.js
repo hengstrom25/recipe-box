@@ -47,14 +47,11 @@ export const updateRecipeDb = (id, recipe, history) => {
 	};
 }
 
-export function deleteRecipeDb(id) {
+export const deleteRecipeDb = (id) => {
 	return dispatch => {
 		return fetch('http://localhost:3001/recipes/' + id, {
 			method: "DELETE"
-			}).then(() => dispatch(deleteRecipe(id))
+		}).then(() => dispatch(deleteRecipe(id))
+
 	)}
 }
-
-
-		
-		
