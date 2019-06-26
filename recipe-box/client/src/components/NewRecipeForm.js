@@ -31,6 +31,7 @@ class RecipeForm extends Component {
 					<label> 
 						name:
 						<input
+							type="text"
 							name="name"
 							value={this.props.formData.name}
 							onChange={this.handleChange}
@@ -40,7 +41,8 @@ class RecipeForm extends Component {
 					<div className="recipe_form">
 					<label> 
 						recipe:
-						<input
+						<textarea
+							type="text"
 							name="recipe_field"
 							value={this.props.formData.recipe_field}
 							onChange={this.handleChange}
@@ -50,10 +52,11 @@ class RecipeForm extends Component {
 					<div className="recipe_form">
 					<label> 
 						notes:
-						<input
+						<textarea
+							type="text"
 							name="notes"
 							value={this.props.formData.notes}
-							onChange={this.handleChange}
+							onChange={this.handleChange}	
 						/>
 					</label>
 					</div>

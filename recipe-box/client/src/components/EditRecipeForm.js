@@ -50,7 +50,7 @@ class EditRecipeForm extends Component {
 					<div className="recipe_form">
 					<label> 
 						recipe:
-						<input
+						<textarea
 							type="text"
 							name="recipe_field"
 							value={this.props.recipe_field}
@@ -61,7 +61,7 @@ class EditRecipeForm extends Component {
 					<div className="recipe_form">
 					<label> 
 						notes:
-						<input
+						<textarea
 							type="text"
 							name="notes"
 							value={this.props.notes}
