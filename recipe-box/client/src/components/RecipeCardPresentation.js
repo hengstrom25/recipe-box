@@ -12,7 +12,7 @@ class RecipeCardPresentation extends Component {
 	
 	render() {
 	
-		const { recipe, category } = this.props;
+		const { recipe, category, history } = this.props;
 		
 		return (
 			<div className='recipe_card'>

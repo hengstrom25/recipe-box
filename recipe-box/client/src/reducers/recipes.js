@@ -62,35 +62,6 @@ export default (state = initialState.recipes, action) => {
 			})
 		}
 		
-
-		
-		case 'SET_RECIPE_NAME': {
-		console.log('SET RECIPE NAME REDUCER')
-			return Object.assign({}, state, {
-				byId: Object.assign({}, state.byId, 
-					{[action.id]: Object.assign({}, state.byId[action.id], 
-						{name: action.name}
-					)}
-				)}
-		)}
-		
-		case 'SET_RECIPE_FIELD': {
-			return Object.assign({}, state, {
-				byId: Object.assign({}, state.byId, 
-					{[action.id]: Object.assign({}, state.byId[action.id], 
-						{recipe_field: action.recipe_field}
-					)}
-				)}
-		)}
-		
-		case 'SET_RECIPE_NOTES': {
-			return Object.assign({}, state, {
-				byId: Object.assign({}, state.allIds, 
-					{[action.id]: Object.assign({}, state.byId[action.id], 
-						{notes: action.notes}
-					)}
-				)}
-		)}
 		
 		default: {
 			return state;
