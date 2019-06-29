@@ -45,7 +45,7 @@ class App extends Component {
 						<Route path='/recipes/:rid' render={props => {
 						 	const {rid} = props.match.params;
 						 		return (
-						 			<RecipeCard id={parseInt(rid)}/>
+						 			<RecipeCard id={parseInt(rid)} history={props.history}/>
 						 		)
 						 	}}/>
 

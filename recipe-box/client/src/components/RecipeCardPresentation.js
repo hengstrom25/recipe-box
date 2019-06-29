@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../index.css';
 import HyperText from './HyperText';
-import { withRouter } from "react-router";
 
 
 class RecipeCardPresentation extends Component {
@@ -38,4 +37,4 @@ class RecipeCardPresentation extends Component {
 
 };
 
-export default withRouter(RecipeCardPresentation);
+export default RecipeCardPresentation;
