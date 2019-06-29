@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../index.css';
-import store from '../store.js';
 import { fetchRecipe } from '../actions/recipes';
 import { deleteRecipe, deleteRecipeDb } from '../actions/recipe';
 import { fetchCategories } from '../actions/categories';

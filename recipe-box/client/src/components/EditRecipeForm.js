@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateRecipeDb } from '../actions/recipe';
 import { updateFormInput } from '../actions/form';
-import store from '../store.js';
 import '../index.css'
 import { fetchRecipe } from '../actions/recipes';
 import { fetchCategories } from '../actions/categories';
@@ -10,8 +9,6 @@ import { fetchCategories } from '../actions/categories';
 class EditRecipeForm extends Component {
 	constructor(props) {
 		super(props);
-		this.handleChange = this.handleChange.bind(this)
-		this.handleOnSubmit = this.handleOnSubmit.bind(this)
 };
 	
 	handleChange = event => {
@@ -78,8 +75,8 @@ class EditRecipeForm extends Component {
 	}
 	
     componentDidMount() {
-         store.dispatch(fetchRecipe(this.props.id))
-         store.dispatch(fetchCategories())
+         this.props.fetchRecipe(this.props.id)
+         this.props.fetchCategories()
     }
 }
 
@@ -94,10 +91,4 @@ const mapStateToProps = (state, ownProps) => {
     }}
 
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		updateFormInput: () => dispatch(updateFormInput())
-	}
-}
-
-export default connect(mapStateToProps, {updateFormInput, updateRecipeDb})(EditRecipeForm)
+export default connect(mapStateToProps, {updateFormInput, updateRecipeDb, fetchRecipe, fetchCategories})(EditRecipeForm)

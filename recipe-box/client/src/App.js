@@ -39,7 +39,7 @@ class App extends Component {
         				<Route path='/recipe/edit/:rid' render={props => {
 						 	const {rid} = props.match.params;	
 								return (
-									<EditRecipeForm id={parseInt(rid)}/>
+									<EditRecipeForm id={parseInt(rid)} history={props.history}/>
 								)
 							}}/>	
 						<Route path='/recipes/:rid' render={props => {
