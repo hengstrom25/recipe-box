@@ -7,7 +7,7 @@ export const updateRecipe = (recipe) => {
 }
 
 export function deleteRecipe(id){
-	return { type: "DELETE_RECIPE", payload: id }
+	return { type: "DELETE_RECIPE", idToDelete: id }
 }
 
 export const addRecipeDb = (recipe, catid, history) => {

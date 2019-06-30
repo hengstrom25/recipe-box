@@ -37,6 +37,11 @@ code {
 	font-size: 24px;
 }
 
+.description_small {
+	font-family: 'Patrick Hand SC', cursive;
+	font-size: 14px;
+}
+
 .recipe_form {
 	font-family: 'Patrick Hand SC', cursive;
 }

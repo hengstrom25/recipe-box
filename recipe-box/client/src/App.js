@@ -5,6 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 import CategoryCard from './components/CategoryCard';
 import RecipeBox from './containers/RecipeBox';
+import RecipeIndex from './containers/RecipeIndex';
 import RecipeCard from './components/RecipeCard';
 import EditRecipeForm from './components/EditRecipeForm';
 import Home from './components/Home';
@@ -33,7 +34,7 @@ class App extends Component {
 						<Route path='/category/:catid' render={props => {
           					const {catid} = props.match.params;
           						return (
-            						<CategoryCard id={parseInt(catid)}/>
+            						<CategoryCard id={parseInt(catid)} withAddButton="true"/>
           						)
         					}}/>
         				<Route path='/recipe/edit/:rid' render={props => {
@@ -48,6 +49,7 @@ class App extends Component {
 						 			<RecipeCard id={parseInt(rid)} history={props.history}/>
 						 		)
 						 	}}/>
+						 <Route path='/recipes' component={RecipeIndex}/>	
 
 					</Switch>
 				</div>

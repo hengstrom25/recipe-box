@@ -13,19 +13,24 @@ class CategoryCard extends Component {
 		
 	render() {
 		
-			const { category, recipes, id } = this.props;
+			const { category, recipes, id, withAddButton } = this.props;
 			
 			return (
 				<div>
 					<p className="diner_style">category: {category.name}</p>
 					<ul className="category_card">
-						{recipes.map(recipe => (
-							<li key={recipe.id}>
-								<Link to={`/recipes/${recipe.id}`}>{recipe.name}</Link>
-							</li>
-						))}
+						{recipes.map(recipe => {
+							if (recipe.category_id == id) {
+								return (
+								<li key={recipe.id}>
+									<Link to={`/recipes/${recipe.id}`}>{recipe.name}</Link>
+								</li>
+							)}
+						})}
 					</ul>
-					<p className="category_card"><Link to={`/category/${id}/newrecipe`}>Add New Recipe</Link></p>
+					{withAddButton &&
+						<p className="category_card"><Link to={`/category/${id}/newrecipe`}>Add New Recipe</Link></p>
+					}
 				</div>	
 			)
 		

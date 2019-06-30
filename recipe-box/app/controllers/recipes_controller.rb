@@ -41,10 +41,7 @@ class RecipesController < ApplicationController
 		recipe.destroy
 		head :ok
 	end
-	
-	#def options
-		#render :text => ''
-	#end
+
 	
 	private
 	
