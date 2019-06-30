@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchCategories } from '../actions/categories';
 import '../index.css'
 
 
-class NavBarPresentation extends Component { 
+class NavBar extends Component { 
  constructor(props) {
         super(props)
     }
@@ -34,4 +35,16 @@ class NavBarPresentation extends Component {
 
 };
 
-export default NavBarPresentation;
+const mapStateToProps = state => 
+	({
+		categories: state.categories.allIds.map(id => state.categories.byId[id])
+	})
+	
+const mapDispatchToProps = dispatch => ({
+	fetchTheCategories: () => {
+		dispatch(fetchCategories())	
+		}
+	})
+	
+	
+export default NavBar =  connect(mapStateToProps, mapDispatchToProps)(NavBar);

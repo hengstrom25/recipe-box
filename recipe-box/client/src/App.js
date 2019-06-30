@@ -9,7 +9,7 @@ import RecipeCard from './components/RecipeCard';
 import EditRecipeForm from './components/EditRecipeForm';
 import Home from './components/Home';
 import NewRecipeForm from './components/NewRecipeForm';
-import NavBar from './containers/NavBar';
+import NavBar from './components/NavBar';
 		
 
 class App extends Component {
