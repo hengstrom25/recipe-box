@@ -5,7 +5,7 @@ import logo from './logo.svg';
 import './App.css';
 import CategoryCard from './containers/CategoryCard';
 import RecipeBox from './components/RecipeBox';
-import RecipeCard from './containers/RecipeCard';
+import RecipeCard from './components/RecipeCard';
 import EditRecipeForm from './components/EditRecipeForm';
 import Home from './components/Home';
 import NewRecipeForm from './components/NewRecipeForm';
