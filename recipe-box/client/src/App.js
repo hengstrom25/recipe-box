@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch, withRouter} from 'react-r
 import logo from './logo.svg';
 import './App.css';
 import CategoryCard from './containers/CategoryCard';
-import RecipeBox from './components/RecipeBox';
+import RecipeBox from './containers/RecipeBox';
 import RecipeCard from './components/RecipeCard';
 import EditRecipeForm from './components/EditRecipeForm';
 import Home from './components/Home';
