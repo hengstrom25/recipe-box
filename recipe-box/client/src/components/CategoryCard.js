@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Link} from 'react-router-dom';
 import '../index.css'
+import { connect } from 'react-redux';
+import { fetchRecipes } from '../actions/recipes';
+import { fetchCategory } from '../actions/categories';
 
-class CategoryCardPresentation extends Component {
+class CategoryCard extends Component {
 
 	constructor(props) {
 		super(props)
@@ -44,5 +47,21 @@ class CategoryCardPresentation extends Component {
 
 };
 
+const mapStateToProps = (state, ownProps) => 
+		({
+			id: ownProps.id,
+			category: state.categories.byId[ownProps.id] || {name:""},
+			recipes: state.recipes.allIds.map(id => state.recipes.byId[id])
+		})
+		
+const mapDispatchToProps = dispatch => ({
+	fetchTheRecipes: (id) => {
+		dispatch(fetchRecipes(id))
+		},
+	fetchTheCategory: (id) => {
+		dispatch(fetchCategory(id))
+		},
+	})
 
-export default CategoryCardPresentation
+
+export default CategoryCard = connect(mapStateToProps, mapDispatchToProps)(CategoryCard);

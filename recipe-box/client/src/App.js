@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link, Switch, withRouter} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
-import CategoryCard from './containers/CategoryCard';
+import CategoryCard from './components/CategoryCard';
 import RecipeBox from './containers/RecipeBox';
 import RecipeCard from './components/RecipeCard';
 import EditRecipeForm from './components/EditRecipeForm';
