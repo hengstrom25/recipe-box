@@ -4,9 +4,18 @@ export default (state = initialState.recipes, action) => {
 	switch (action.type) {
 	
 		case 'ADD_RECIPE':
+		{
+			const id = action.recipe.id
+			const newRecipe = action.recipe
 			return {
 				...state,
-			}
+				byId: {
+					...state.byId,
+					[id]:newRecipe
+				},
+				allIds: state.allIds.concat([id])
+				}
+		}
 			
 		case 'UPDATE_RECIPE': 
 		{
