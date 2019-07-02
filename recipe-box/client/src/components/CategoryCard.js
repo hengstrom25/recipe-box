@@ -9,8 +9,17 @@ class CategoryCard extends Component {
 
 	constructor(props) {
 		super(props)
+			this.state = {likes: 0}
 		}
 		
+	handleClick = e => {
+		/*increase counter and show counter*/
+		this.setState(state => ({
+			likes: state.likes + 1
+		}))
+	}
+	
+
 	render() {
 		
 			const { category, recipes, id, withAddButton } = this.props;
@@ -24,6 +33,7 @@ class CategoryCard extends Component {
 								return (
 								<li key={recipe.id}>
 									<Link to={`/recipes/${recipe.id}`}>{recipe.name}</Link>
+									<button onClick={this.handleClick}>{this.state.likes ? this.state.likes : 'Like'}</button>
 								</li>
 							)}
 						})}
