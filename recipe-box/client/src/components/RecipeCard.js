@@ -24,7 +24,7 @@ class RecipeCard extends Component {
 				<p>recipe: <HyperText>{recipe.recipe_field}</HyperText></p>
 				<p>notes: {recipe.notes}</p>
 				<button onClick={() => {
-					history.push('/recipe/edit/' + recipe.id)
+					history.push('/recipes/' + recipe.id + '/edit')
 					}}>Edit Recipe</button>
 				<button onClick={() => {
 					this.props.deleteRecipe(recipe.id)

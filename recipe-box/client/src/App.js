@@ -37,7 +37,7 @@ class App extends Component {
             						<CategoryCard id={parseInt(catid)} withAddButton="true"/>
           						)
         					}}/>
-        				<Route path='/recipe/edit/:rid' render={props => {
+        				<Route path='/recipes/:rid/edit' render={props => {
 						 	const {rid} = props.match.params;	
 								return (
 									<EditRecipeForm id={parseInt(rid)} history={props.history}/>
